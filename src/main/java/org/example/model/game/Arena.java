@@ -8,7 +8,7 @@ public class Arena {
     private Frog frog;
     private List<Car> cars;
     private List<Log> logs;
-    private List<Leave> leaves;
+    private List<Leaf> leaves;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -19,11 +19,30 @@ public class Arena {
     public Frog getFrog() {return this.frog;}
     public List<Car> getCars() {return this.cars;}
     public List<Log> getLogs() {return this.logs;}
-    public List<Leave> getLeaves() {return this.leaves;}
+    public List<Leaf> getLeaves() {return this.leaves;}
 
     public void setFrog(Frog a) {this.frog = a;}
     public void setCars(List<Car> cars) {this.cars = cars;}
     public void setLogs(List<Log> logs) {this.logs = logs;}
-    public void setLeaves(List<Leave> leaves) {this.leaves = leaves;}
+    public void setLeaves(List<Leaf> leaves) {this.leaves = leaves;}
+
+    public boolean isCar(Position position) {
+        for (Car car : cars)
+            if (car.getPosition().equals(position))
+                return true;
+        return false;
+    }
+    public boolean isLog(Position position) {
+        for (Log log : logs)
+            if (log.getPosition().equals(position))
+                return true;
+        return false;
+    }
+    public boolean isLeaf(Position position) {
+        for (Leaf leaf : leaves)
+            if (leaf.getPosition().equals(position))
+                return true;
+        return false;
+    }
 
 }
