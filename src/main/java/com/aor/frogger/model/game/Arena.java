@@ -49,4 +49,14 @@ public class Arena {
         return false;
     }
 
+    private boolean canFrogMove(Position pos){
+        return (pos.getX1() >= 0 && (pos.getX2() - pos.getX1()) == pos.getXdiff() && pos.getX2() <= width && pos.getX2() > pos.getX1() ) &&
+                (pos.getY2() >= 0 && (pos.getY1() - pos.getY2()) == pos.getYdiff() && pos.getY1() <= height && pos.getY1() > pos.getY2());
+    }
+    public void moveFrog(Position position){
+        if(canFrogMove(position))
+            frog.setPosition(position);
+    }
+
+
 }

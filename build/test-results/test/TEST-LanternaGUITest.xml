@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LanternaGUITest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-11-22T22:35:34" hostname="Lima" time="0.291">
+<testsuite name="LanternaGUITest" tests="2" skipped="0" failures="1" errors="0" timestamp="2022-11-23T17:03:22" hostname="tomas-virtual-machine" time="0.427">
   <properties/>
-  <testcase name="drawFrog()" classname="LanternaGUITest" time="0.291">
-    <failure message="Argument(s) are different! Wanted:&#10;textGraphics.setForegroundColor(&#10;    {RGB:255,215,0}&#10;);&#10;-&gt; at LanternaGUITest.drawFrog(LanternaGUITest.java:32)&#10;Actual invocations have different arguments:&#10;textGraphics.setForegroundColor(&#10;    {RGB:0,255,0}&#10;);&#10;-&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:85)&#10;textGraphics.drawRectangle(&#10;    [1:3],&#10;    {2x2},&#10;    '-'&#10;);&#10;-&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:88)&#10;" type="org.mockito.exceptions.verification.opentest4j.ArgumentsAreDifferent">Argument(s) are different! Wanted:
+  <testcase name="drawFrog()" classname="LanternaGUITest" time="0.423">
+    <failure message="Argument(s) are different! Wanted:&#10;textGraphics.setForegroundColor(&#10;    {RGB:255,215,0}&#10;);&#10;-&gt; at LanternaGUITest.drawFrog(LanternaGUITest.java:32)&#10;Actual invocations have different arguments:&#10;textGraphics.setForegroundColor(&#10;    {RGB:0,255,0}&#10;);&#10;-&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:85)&#10;textGraphics.drawRectangle(&#10;    [1:3],&#10;    {2x0},&#10;    '-'&#10;);&#10;-&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:88)&#10;" type="org.mockito.exceptions.verification.opentest4j.ArgumentsAreDifferent">Argument(s) are different! Wanted:
 textGraphics.setForegroundColor(
     {RGB:255,215,0}
 );
@@ -14,7 +14,7 @@ textGraphics.setForegroundColor(
 -&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:85)
 textGraphics.drawRectangle(
     [1:3],
-    {2x2},
+    {2x0},
     '-'
 );
 -&gt; at com.aor.frogger.gui.LanternaGUI.drawCharacter(LanternaGUI.java:88)
@@ -105,6 +105,7 @@ textGraphics.drawRectangle(
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
+  <testcase name="drawText()" classname="LanternaGUITest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
