@@ -11,7 +11,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.aor.frogger.model.game.Position;
+import com.aor.frogger.model.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -89,16 +89,16 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawFrog(Position position) {drawCharacter(position, '-', "#00FF00");}
+    public void drawFrog(Position position) {drawCharacter(position, '*', "#00FF00");}
 
     @Override
-    public void drawLog(Position position) {drawCharacter(position, '-', "#A6381F"); }
+    public void drawLog(Position position) {drawCharacter(position, '*', "#A6381F"); }
 
     @Override
-    public void drawLeaf(Position position) {drawCharacter(position, '-', "#FFFF00"); }
+    public void drawLeaf(Position position) {drawCharacter(position, '*', "#FFFF00"); }
 
     @Override
-    public void drawCar(Position position) {drawCharacter(position, '-', "#0000FF"); }
+    public void drawCar(Position position) {drawCharacter(position, '*', "#0000FF"); }
 
     @Override
     public void drawText(Position position, String text, String color) {

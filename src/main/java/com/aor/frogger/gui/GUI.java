@@ -1,6 +1,6 @@
 package com.aor.frogger.gui;
 
-import com.aor.frogger.model.game.Position;
+import com.aor.frogger.model.Position;
 
 import java.io.IOException;
 
