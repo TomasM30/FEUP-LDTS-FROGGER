@@ -1,9 +1,9 @@
 package com.aor.frogger.model;
 
-public class Frog extends Rectangle {
+public class Frog extends Element {
     private int lives;
-    public Frog(int x1, int x2, int y1, int y2, int lives) {
-        super(x1, x2, y1, y2);
+    public Frog(int x1, int y1, int lives) {
+        super(x1, y1);
         this.lives = lives;
     }
 

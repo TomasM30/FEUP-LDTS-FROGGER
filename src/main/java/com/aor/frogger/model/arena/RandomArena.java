@@ -6,17 +6,20 @@ import com.aor.frogger.model.Leaf;
 import com.aor.frogger.model.Log;
 
 import java.util.List;
+import java.util.Random;
 
 public class RandomArena extends ArenaBuilder {
+    private final Random rng;
 
     private final int width;
     private final int height;
-    private final List<Integer> numberOfLogs;
+    private final int numberOfLogs;
     private final int numberOfLeaves;
     private final List<Integer> numberOfCars;
     private List<List<Object>> lines;
 
-    public RandomArena(int width, int height, List<Integer> numberOfCars, int numberOfLeaves, List<Integer> numberOfLogs, List<List<Object>> lines) {
+    public RandomArena(int width, int height, List<Integer> numberOfCars, int numberOfLeaves, int numberOfLogs, List<List<Object>> lines) {
+        this.rng = new Random();
         this.width = width;
         this.height = height;
         this.numberOfCars = numberOfCars;
@@ -42,26 +45,30 @@ public class RandomArena extends ArenaBuilder {
         List<Car> cars = null;
         for(int i = 0; i<lines.size(); i++) {
             if(i == 0){ // onde começa o frog
-                frog.add(new Frog(width/2-height/14,width/2+height/14,height/7,0,3));
+                frog.add(new Frog(width/2,0,3));
                 linhas.get(i).add(frog);
                 continue;
             }
             if(i==4) { // logs
-                logs.add(new Log(2,82,height*6/7,height*5/7));
-                logs.add(new Log(92,202, height*6/7,height*5/7));
+                for(int j = 0; j<numberOfLogs; j++) {
+                    logs.add(new Log(rng.nextInt(width-2), 5));
+                }
                 linhas.get(i).add(logs);
                 continue;
             }
             if(i==5) { // leaves
-                leaves.add(new Leaf(4,84,height,height*6/7));
-                leaves.add(new Leaf(90,210,height,height*6/7));
+                for(int j = 0; j<numberOfLeaves;j++){
+                    leaves.add(new Leaf(rng.nextInt(width-2), 4) );
+                }
                 linhas.get(i).add(leaves);
                 continue;
             }
-            if(i>=1 && i<=2) {
-                for (int j = height / 7; j < height * 4 / 7; j += height / 7) {
-                    cars.add(new Car(2, 82, j + height / 7, j));
-                    cars.add(new Car(90,170,j+height/7,j));
+            if(i==1) {
+                for (int j = 0; j<numberOfCars.get(0); j++) {
+                    cars.add(new Car(rng.nextInt(width-2), 1));
+                }
+                for(int j = 0; j<numberOfCars.get(1);j++) {
+                    cars.add(new Car(rng.nextInt(width-2), 2));
                 }
             }
         }

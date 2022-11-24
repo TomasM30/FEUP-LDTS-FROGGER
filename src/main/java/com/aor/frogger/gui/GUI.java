@@ -23,5 +23,9 @@ public interface GUI {
 
     void close() throws IOException;
 
+    void drawRiver(Position position);
+
+    void drawRoad(Position position);
+
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 }

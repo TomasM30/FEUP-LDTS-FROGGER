@@ -1,6 +1,6 @@
 package com.aor.frogger.gui;
 
-import com.googlecode.lanterna.TerminalPosition;
+import com.aor.frogger.model.Position;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -11,7 +11,6 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.aor.frogger.model.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -80,25 +79,36 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
+    private void drawCharacter(int x, int y, char c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y + 1, "" + c);
+    }
+    /*
     private void drawCharacter(Position position,char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         TerminalPosition p = new TerminalPosition(position.getX1(), position.getY1());
-        TerminalSize s = new TerminalSize(position.getX2()- position.getX1(), position.getY1()- position.getY2());
+        TerminalSize s = new TerminalSize(position.getX1(), position.getY1());
         tg.drawRectangle(p,s,c);
     }
+    */
+
 
     @Override
-    public void drawFrog(Position position) {drawCharacter(position, '*', "#00FF00");}
+    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00");}
 
     @Override
-    public void drawLog(Position position) {drawCharacter(position, '*', "#A6381F"); }
+    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'L', "#A6381F"); }
 
     @Override
-    public void drawLeaf(Position position) {drawCharacter(position, '*', "#FFFF00"); }
+    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#FFFF00"); }
 
     @Override
-    public void drawCar(Position position) {drawCharacter(position, '*', "#0000FF"); }
+    public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#0000FF"); }
+
+    public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#0000FF"); }
+    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#0000FF"); }
 
     @Override
     public void drawText(Position position, String text, String color) {

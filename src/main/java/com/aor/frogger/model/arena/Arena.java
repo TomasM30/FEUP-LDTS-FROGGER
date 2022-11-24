@@ -1,6 +1,8 @@
 package com.aor.frogger.model.arena;
 
 import com.aor.frogger.model.*;
+import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.Road;
 
 import java.util.List;
 
@@ -11,13 +13,14 @@ public class Arena {
     private List<Car> cars;
     private List<Log> logs;
     private List<Leaf> leaves;
+    private List<Road> roads;
+    private List<River> rivers;
 
     private List<List<Object>> lines;
 
-    public Arena(int width, int height, List<List<Object>> lines) {
+    public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        this.lines = lines;
     }
     public int getWidth() {return this.width;}
     public int getHeight() {return this.height;}
@@ -35,20 +38,30 @@ public class Arena {
 
     public boolean isCar(Position position) {
         for (Car car : cars)
-            if (car.getPosition().intersects(position))
+            if (car.getPosition().equals(position))
                 return true;
         return false;
     }
     public boolean isLog(Position position) {
         for (Log log : logs)
-            if (log.getPosition().intersects(position))
+            if (log.getPosition().equals(position))
                 return true;
         return false;
     }
     public boolean isLeaf(Position position) {
         for (Leaf leaf : leaves)
-            if (leaf.getPosition().intersects(position))
+            if (leaf.getPosition().equals(position))
                 return true;
+        return false;
+    }
+    public boolean isRoad(Position position) {
+        for (Road road : roads)
+            if(road.getPosition().equals(position)) return true;
+        return false;
+    }
+    public boolean isRiver(Position position) {
+        for (River river : rivers)
+            if(river.getPosition().equals(position)) return true;
         return false;
     }
 /*

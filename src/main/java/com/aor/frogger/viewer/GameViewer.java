@@ -1,8 +1,8 @@
 package com.aor.frogger.viewer;
 
 import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.Element;
 import com.aor.frogger.model.Position;
-import com.aor.frogger.model.Rectangle;
 import com.aor.frogger.model.arena.Arena;
 
 import java.util.List;
@@ -21,12 +21,12 @@ public class GameViewer extends Viewer<Arena> {
         gui.drawText(new Position(0, 0), "Lives: " + getModel().getFrog().getLives(), "#FFD700");
     }
 
-    private <T extends Rectangle> void drawElements(GUI gui, List<T> elements, RectangleViewer<T> viewer) {
+    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
         for (T element : elements)
             drawElement(gui, element, viewer);
     }
 
-    private <T extends Rectangle> void drawElement(GUI gui, T element, RectangleViewer<T> viewer) {
+    private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
     }
 }

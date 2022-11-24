@@ -24,7 +24,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedHard()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena())); // não está  bem porque falta implementar corretamente a LoaderArenaBuilder
+                if (getModel().isSelectedHard()) game.setState(new GameState(new LoaderArenaBuilder("Hard").createArena())); // não está  bem porque falta implementar corretamente a LoaderArenaBuilder
         }
     }
 }

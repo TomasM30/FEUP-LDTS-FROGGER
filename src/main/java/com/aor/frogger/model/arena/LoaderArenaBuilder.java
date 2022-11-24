@@ -1,5 +1,12 @@
 package com.aor.frogger.model.arena;
 
+import com.aor.frogger.model.Car;
+import com.aor.frogger.model.Frog;
+import com.aor.frogger.model.Leaf;
+import com.aor.frogger.model.Log;
+import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.Road;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,13 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder { // esta classe não está correta ainda!!
-    private final int level;
+    private final String level;
     private final List<String> lines;
 
-    public LoaderArenaBuilder(int level) throws IOException {
+    public LoaderArenaBuilder(String level) throws IOException {
         this.level = level;
 
-        URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl"); // mudar isto
+        URL resource = LoaderArenaBuilder.class.getResource("/levels/hard.lvl"); // mudar isto
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -41,12 +48,62 @@ public class LoaderArenaBuilder extends ArenaBuilder { // esta classe não está
     }
 
     @Override
-    protected List<List<Object>> getLines() {
-        return null;
-    }
+    protected List<List<Object>> getLines() {return null;}
 
     @Override
-    protected List<List<Object>> createLines() {
-        return null;
+    protected List<List<Object>> createLines(){
+        List<List<Object>> linhas = new ArrayList<>();
+        for(int i = 0; i<lines.size();i++){
+            linhas.add(new ArrayList<>());
+        }
+        for(int j = lines.size()-1; j>=0; j--) {
+            String line = lines.get(j);
+            if (j == lines.size()-1) {
+                for (int i = 0; i < line.length(); i++) {
+                    if(line.charAt(i) == 'H') linhas.get(j).add(new Frog(i,j,3));
+                    else linhas.get(j).add(new Road(i,j));
+                }
+                continue;
+            }
+            if(j == lines.size()/2) {
+                for(int i = 0; i<line.length(); i++) {
+                    linhas.get(j).add(new Road(i,j));
+                }
+                continue;
+            }
+            if(j == 0) {
+                for(int i = 0; i<line.length(); i++) {
+                    linhas.get(j).add(new Road(i, j));
+                }
+                continue;
+            }
+            if(j>lines.size()/2) {
+                for(int i = 0; i<line.length(); i++) {
+                    if(line.charAt(i) == 'C') linhas.get(j).add(new Car(i,j));
+                    else linhas.get(j).add(new Road(i,j));
+                }
+                continue;
+            }
+            if(j<lines.size()/2) {
+                for(int i = 0; i<line.length(); i++) {
+                    if(line.charAt(i) == 'L'){
+                        linhas.get(j).add(new Log(i,j));
+                        for(int h = i; h<line.length();h++) {
+                            if(line.charAt(i) == 'L') linhas.get(j).add(new Log(i,j));
+                            else linhas.get(j).add(new River(i,j));
+                        }
+                    }
+                    else if(line.charAt(i) == '@') {
+                        linhas.get(j).add(new Leaf(i,j));
+                        for(int h = i; h<line.length();h++) {
+                            if(line.charAt(i) == '@') linhas.get(j).add(new Log(i,j));
+                            else linhas.get(j).add(new River(i,j));
+                        }
+                    }
+                    else linhas.get(j).add(new River(i,j));
+                }
+            }
+        }
+        return linhas;
     }
 }

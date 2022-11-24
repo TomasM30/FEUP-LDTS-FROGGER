@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class ArenaBuilder {
     public Arena createArena() {
-        Arena arena = new Arena(getWidth(), getHeight(), getLines());
+        Arena arena = new Arena(getWidth(), getHeight());
 
         arena.setLines(createLines());
 

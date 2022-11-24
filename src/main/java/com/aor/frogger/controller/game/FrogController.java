@@ -26,15 +26,21 @@ public class FrogController extends GameController {
 
     private void moveFrogUp() {moveFrog(getModel().getFrog().getPosition().getUp());}
 
-    public void moveFrog(Position position) { //não está completa
+    public void moveFrog(Position position) {
         if(getModel().isCar(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2- getModel().getHeight()/14, getModel().getWidth()/2 + getModel().getHeight()/14, getModel().getHeight()/7,0 )); // sapo tem que voltar à posição inicial
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
         }
         else if((getModel().isLeaf(position))) {
-            getModel().getFrog().setPosition(position);  // volta ao início ou vai ter uma espécie de checkpoint?
+            getModel().getFrog().setPosition(position);
         }
         else if((getModel().isLog(position))) {
-            getModel().getFrog().setPosition(position);  // volta ao início ou vai ter uma espécio de checkpoint?
+            getModel().getFrog().setPosition(position);
+        }
+        else if(getModel().isRiver(position)) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
+        }
+        else if(getModel().isRoad(position)) {
+            getModel().getFrog().setPosition(position);
         }
     }
 }

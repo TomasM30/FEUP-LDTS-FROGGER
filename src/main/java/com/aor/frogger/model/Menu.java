@@ -32,7 +32,7 @@ public class Menu {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(1);
+        return isSelected(3);
     }
 
     public boolean isSelectedEasy() {
@@ -44,7 +44,7 @@ public class Menu {
     }
 
     public boolean isSelectedHard() {
-        return isSelected(2);
+        return isSelected(0);
     }
 
     public int getNumberEntries() {

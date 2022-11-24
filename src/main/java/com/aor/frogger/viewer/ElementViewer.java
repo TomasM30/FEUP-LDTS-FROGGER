@@ -1,9 +1,10 @@
 package com.aor.frogger.viewer;
 
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Rectangle;
+import com.aor.frogger.model.Element;
 
-public interface RectangleViewer<T extends Rectangle> {
+
+public interface ElementViewer<T extends Element> {
     void draw(T element, GUI gui);
 }
 
