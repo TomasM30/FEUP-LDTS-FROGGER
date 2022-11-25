@@ -35,6 +35,8 @@ public class Arena {
     public void setLogs(List<Log> logs) {this.logs = logs;}
     public void setLeaves(List<Leaf> leaves) {this.leaves = leaves;}
     public void setLines(List<List<Object>> lines) {this.lines = lines;}
+    public void setRoads(List<Road> roads) {this.roads = roads;}
+    public void setRivers(List<River> rivers) {this.rivers = rivers;}
 
     public boolean isCar(Position position) {
         for (Car car : cars)

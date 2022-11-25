@@ -108,7 +108,7 @@ public class LanternaGUI implements GUI {
     public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#0000FF"); }
 
     public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#0000FF"); }
-    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#0000FF"); }
+    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#808080"); }
 
     @Override
     public void drawText(Position position, String text, String color) {

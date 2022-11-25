@@ -4,7 +4,10 @@ import com.aor.frogger.model.Car;
 import com.aor.frogger.model.Frog;
 import com.aor.frogger.model.Leaf;
 import com.aor.frogger.model.Log;
+import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.Road;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -27,6 +30,45 @@ public class RandomArena extends ArenaBuilder {
         this.numberOfLogs = numberOfLogs;
         this.lines = lines;
     }
+
+    @Override
+    protected List<Car> createCars() {
+        List<Car> cars = new ArrayList<>();
+        for(int i = 0; i<numberOfCars.get(0); i++) {
+            cars.add(new Car(rng.nextInt(width-2),1 ));
+        }
+        return cars;
+    }
+
+    @Override
+    protected Frog createFrog() {
+        return new Frog(width/2,0,3);
+    }
+
+    @Override
+    protected List<Log> createLogs() {
+        List<Log> logs = new ArrayList<>();
+        for(int i = 0; i<numberOfLogs; i++) {
+            logs.add(new Log(rng.nextInt(width-2),5 ));
+        }
+        return logs;
+    }
+
+    @Override
+    protected List<Leaf> createLeaves() {
+        return null;
+    }
+
+    @Override
+    protected List<Road> createRoads() {
+        return null;
+    }
+
+    @Override
+    protected List<River> createRivers() {
+        return null;
+    }
+
     @Override
     protected int getWidth() {return width;}
 
@@ -35,6 +77,8 @@ public class RandomArena extends ArenaBuilder {
 
     @Override
     protected List<List<Object>> getLines() {return lines; }
+
+
 
     @Override
     protected List<List<Object>> createLines() { // 7 linhas (1 inicio, 2 estrada, 1 a meio, 2 rio, 1 final)

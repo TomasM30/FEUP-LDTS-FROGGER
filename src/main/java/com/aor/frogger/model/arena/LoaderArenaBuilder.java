@@ -35,6 +35,77 @@ public class LoaderArenaBuilder extends ArenaBuilder { // esta classe não está
     }
 
     @Override
+    protected List<Car> createCars() {
+        List<Car> cars = new ArrayList<>();
+        for(int j = 0;j<lines.size() ; j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i) == 'C') cars.add(new Car(i,j));
+            }
+        }
+        return cars;
+    }
+
+    @Override
+    protected Frog createFrog() {
+        for (int j = 0; j < lines.size(); j++) {
+            String line = lines.get(j);
+            for (int i = 0; i < line.length(); i++) {
+                if (line.charAt(i) == 'H') return new Frog(i, j, 3);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    protected List<Log> createLogs() {
+        List<Log> logs = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)=='L') logs.add(new Log(i,j));
+            }
+        }
+        return logs;
+    }
+
+    @Override
+    protected List<Leaf> createLeaves() {
+        List<Leaf> leaves = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)=='@') leaves.add(new Leaf(i,j));
+            }
+        }
+        return leaves;
+    }
+
+    @Override
+    protected List<Road> createRoads() {
+        List<Road> roads = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)=='#') roads.add(new Road(i,j));
+            }
+        }
+        return roads;
+    }
+
+    @Override
+    protected List<River> createRivers() {
+        List<River> rivers = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)=='-') rivers.add(new River(i,j));
+            }
+        }
+        return rivers;
+    }
+
+    @Override
     protected int getWidth() {
         int width = 0;
         for (String line : lines)

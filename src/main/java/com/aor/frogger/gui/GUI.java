@@ -17,15 +17,16 @@ public interface GUI {
 
     void drawText(Position position, String text, String color);
 
+    void drawRiver(Position position);
+
+    void drawRoad(Position position);
+
     void clear();
 
     void refresh() throws IOException;
 
     void close() throws IOException;
 
-    void drawRiver(Position position);
-
-    void drawRoad(Position position);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 }
