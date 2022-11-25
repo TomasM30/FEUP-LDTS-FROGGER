@@ -8,7 +8,7 @@ import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-/*
+
 class LanternaGUITest {
     private Screen screen;
     private LanternaGUI gui;
@@ -27,7 +27,7 @@ class LanternaGUITest {
 
     @Test
     void drawFrog() {
-        gui.drawFrog(new Position(1, 3, 3, 1));
+        gui.drawFrog(new Position(1, 3));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 215, 0));
         Mockito.verify(tg, Mockito.times(1)).drawRectangle(new TerminalPosition(1,3), new TerminalSize(2,2), 'H');
@@ -41,7 +41,3 @@ class LanternaGUITest {
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Hello World");
     }
 }
-
-// tou a borrar com isto, ajuda mental precisa-se
-
- */
