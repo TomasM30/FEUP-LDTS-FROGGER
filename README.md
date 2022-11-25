@@ -22,6 +22,8 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 ### PLANNED FEATURES
 
 - **Boosts** - Items that the frog can pick up to help it reach the other side easily
+- **Different Levels** - Increased speed and number of obstacles increase accordingly to the number of times the frog reaches the other side
+- **Timer** - Will trackdown the time the user takes to complete a level
 
 ### DESIGN
 Insert design problems
@@ -46,7 +48,5 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 - Link to mutation testing report.
 
 ### SELF-EVALUATION
-
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
 
 
