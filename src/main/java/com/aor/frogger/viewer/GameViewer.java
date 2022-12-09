@@ -14,11 +14,13 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
+        gui.drawText(new Position(0, 0), "Lives: " + getModel().getFrog().getLives(), "#FFD700");
+        drawElements(gui,getModel().getRivers(), new RiverViewer());
+        drawElements(gui,getModel().getRoads(), new RoadViewer());
         drawElements(gui, getModel().getLogs(), new LogViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());
         drawElements(gui, getModel().getLeaves(), new LeafViewer());
-        gui.drawText(new Position(0, 0), "Lives: " + getModel().getFrog().getLives(), "#FFD700");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

@@ -10,7 +10,7 @@ public class Frog extends Element {
     public int getLives() {
         return this.lives;
     }
-    public int decreaseLives() {
-        return this.lives--;
+    public void decreaseLives() {
+        this.lives -= 1;
     }
 }

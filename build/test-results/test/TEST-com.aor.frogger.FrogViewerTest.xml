@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aor.frogger.FrogViewerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-25T22:21:53" hostname="Lima" time="0.274">
+<testsuite name="com.aor.frogger.FrogViewerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:51:09" hostname="Lima" time="0.268">
   <properties/>
-  <testcase name="drawElement()" classname="com.aor.frogger.FrogViewerTest" time="0.274"/>
+  <testcase name="drawElement()" classname="com.aor.frogger.FrogViewerTest" time="0.268"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

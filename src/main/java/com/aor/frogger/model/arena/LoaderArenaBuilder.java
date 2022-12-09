@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder { // esta classe não está correta ainda!!
+public class LoaderArenaBuilder extends ArenaBuilder {
     private final String level;
     private final List<String> lines;
 

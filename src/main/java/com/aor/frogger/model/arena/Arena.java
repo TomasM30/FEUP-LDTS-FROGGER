@@ -29,6 +29,8 @@ public class Arena {
     public List<Car> getCars() {return this.cars;}
     public List<Log> getLogs() {return this.logs;}
     public List<Leaf> getLeaves() {return this.leaves;}
+    public List<River> getRivers() {return this.rivers;}
+    public List<Road> getRoads() {return this.roads;}
 
     public void setFrog(Frog a) {this.frog = a;}
     public void setCars(List<Car> cars) {this.cars = cars;}
