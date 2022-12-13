@@ -4,6 +4,7 @@ import com.aor.frogger.model.Car;
 import com.aor.frogger.model.Frog;
 import com.aor.frogger.model.Leaf;
 import com.aor.frogger.model.Log;
+import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
 
@@ -91,6 +92,17 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             }
         }
         return roads;
+    }
+    @Override
+    protected List<Dirt> createDirt() {
+        List<Dirt> dirts = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)=='%') dirts.add(new Dirt(i,j));
+            }
+        }
+        return dirts;
     }
 
     @Override

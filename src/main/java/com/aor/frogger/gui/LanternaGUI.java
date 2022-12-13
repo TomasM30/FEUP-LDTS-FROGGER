@@ -97,7 +97,7 @@ public class LanternaGUI implements GUI {
 
 
     @Override
-    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00","#808080");}
+    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00","#6F4E37");}
 
     @Override
     public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'L', "#8B4513","#7FB3D5"); }
@@ -110,6 +110,9 @@ public class LanternaGUI implements GUI {
 
     public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#013F94","#7FB3D5"); }
     public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#FFFFFF", "#808080"); }
+
+    @Override
+    public void drawDirt(Position position) {drawCharacter(position.getX1(), position.getY1(), '%', "#808080", "#6F4E37");}
 
     @Override
     public void drawText(Position position, String text, String color) {

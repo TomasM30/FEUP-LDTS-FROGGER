@@ -20,6 +20,7 @@ public interface GUI {
     void drawRiver(Position position);
 
     void drawRoad(Position position);
+    void drawDirt(Position position);
 
     void clear();
 

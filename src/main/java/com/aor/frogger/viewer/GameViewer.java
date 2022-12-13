@@ -16,6 +16,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawElements(GUI gui) {
         gui.drawText(new Position(0, 0), "Lives: " + getModel().getFrog().getLives(), "#FFD700");
         drawElements(gui,getModel().getRivers(), new RiverViewer());
+        drawElements(gui,getModel().getDirts(), new DirtViewer());
         drawElements(gui,getModel().getRoads(), new RoadViewer());
         drawElements(gui, getModel().getLogs(), new LogViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());

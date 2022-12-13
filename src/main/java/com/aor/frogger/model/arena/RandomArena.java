@@ -4,6 +4,7 @@ import com.aor.frogger.model.Car;
 import com.aor.frogger.model.Frog;
 import com.aor.frogger.model.Leaf;
 import com.aor.frogger.model.Log;
+import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
 
@@ -65,6 +66,11 @@ public class RandomArena extends ArenaBuilder {
     }
 
     @Override
+    protected List<Dirt> createDirt() {
+        return null;
+    }
+
+    @Override
     protected List<River> createRivers() {
         return null;
     }
@@ -87,6 +93,7 @@ public class RandomArena extends ArenaBuilder {
         List<Log> logs = null;
         List<Leaf> leaves = null;
         List<Car> cars = null;
+        List<Dirt> dirts = null;
         for(int i = 0; i<lines.size(); i++) {
             if(i == 0){ // onde começa o frog
                 frog.add(new Frog(width/2,0,3));
