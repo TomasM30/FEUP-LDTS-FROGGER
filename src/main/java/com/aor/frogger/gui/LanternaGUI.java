@@ -58,7 +58,7 @@ public class LanternaGUI implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 60);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -79,9 +79,10 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
-    private void drawCharacter(int x, int y, char c, String color) {
+    private void drawCharacter(int x, int y, char c, String color, String bcolor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(bcolor));
         tg.putString(x, y + 1, "" + c);
     }
     /*
@@ -96,19 +97,22 @@ public class LanternaGUI implements GUI {
 
 
     @Override
-    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00");}
+    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00","#6F4E37");}
 
     @Override
-    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'L', "#A6381F"); }
+    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'L', "#8B4513","#7FB3D5"); }
 
     @Override
-    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#FFFF00"); }
+    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#00FF00","#7FB3D5"); }
 
     @Override
-    public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#0000FF"); }
+    public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#0000FF","#808080"); }
 
-    public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#0000FF"); }
-    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#808080"); }
+    public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#013F94","#7FB3D5"); }
+    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#FFFFFF", "#808080"); }
+
+    @Override
+    public void drawDirt(Position position) {drawCharacter(position.getX1(), position.getY1(), '%', "#808080", "#6F4E37");}
 
     @Override
     public void drawText(Position position, String text, String color) {

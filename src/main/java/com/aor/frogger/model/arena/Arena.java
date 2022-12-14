@@ -1,6 +1,7 @@
 package com.aor.frogger.model.arena;
 
 import com.aor.frogger.model.*;
+import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
 
@@ -15,6 +16,7 @@ public class Arena {
     private List<Leaf> leaves;
     private List<Road> roads;
     private List<River> rivers;
+    private List<Dirt> dirts;
 
     private List<List<Object>> lines;
 
@@ -31,6 +33,7 @@ public class Arena {
     public List<Leaf> getLeaves() {return this.leaves;}
     public List<River> getRivers() {return this.rivers;}
     public List<Road> getRoads() {return this.roads;}
+    public List<Dirt> getDirts(){return this.dirts;}
 
     public void setFrog(Frog a) {this.frog = a;}
     public void setCars(List<Car> cars) {this.cars = cars;}
@@ -39,6 +42,7 @@ public class Arena {
     public void setLines(List<List<Object>> lines) {this.lines = lines;}
     public void setRoads(List<Road> roads) {this.roads = roads;}
     public void setRivers(List<River> rivers) {this.rivers = rivers;}
+    public void setDirts(List<Dirt> dirts) {this.dirts = dirts;}
 
     public boolean isCar(Position position) {
         for (Car car : cars)
@@ -66,6 +70,12 @@ public class Arena {
     public boolean isRiver(Position position) {
         for (River river : rivers)
             if(river.getPosition().equals(position)) return true;
+        return false;
+    }
+
+    public boolean isDirt(Position position){
+        for (Dirt dirt : dirts)
+            if(dirt.getPosition().equals(position)) return true;
         return false;
     }
 /*

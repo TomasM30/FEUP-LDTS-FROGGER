@@ -29,12 +29,15 @@ public class FrogController extends GameController {
     public void moveFrog(Position position) {
         getModel().getFrog().setPosition(position);
         if(getModel().isCar(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
         }
-        else if(getModel().isRiver(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
+        if(getModel().isRiver(position) && !(getModel().isLeaf(position)) && !(getModel().isLog(position))) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
+        }
+        if(getModel().isLeaf(position)) {
+            getModel().getFrog().getPosition().getLeft();
         }
     }
 }

@@ -23,9 +23,11 @@ public class CarController extends GameController{
     }
     private void moveCar(Car car, Position position) {
         car.setPosition(position);
-        if (getModel().getFrog().getPosition().equals(position))
-            getModel().getFrog().decreaseLives();
         if(position.getX1() == 0)
             car.setPosition(new Position(getModel().getLines().get(0).size(),position.getY1()));
+        if (getModel().getFrog().getPosition().equals(position)) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
+            getModel().getFrog().decreaseLives();
+        }
     }
 }

@@ -8,7 +8,7 @@ public class Menu {
     private int currentEntry = 0;
 
     public Menu() {
-        this.entries = Arrays.asList("Hard", "Medium", "Easy", "Exit");
+        this.entries = Arrays.asList("Start Game", "Exit");
     }
 
     public void nextEntry() {
@@ -32,18 +32,14 @@ public class Menu {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(3);
-    }
-
-    public boolean isSelectedEasy() {
-        return isSelected(0);
-    }
-
-    public boolean isSelectedMedium() {
         return isSelected(1);
     }
 
-    public boolean isSelectedHard() {
+    //public boolean isSelectedEasy() {return isSelected(0);}
+
+    //public boolean isSelectedMedium() {return isSelected(1);}
+
+    public boolean isSelectedStartGame() {
         return isSelected(0);
     }
 
