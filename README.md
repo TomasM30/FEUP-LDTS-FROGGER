@@ -1,4 +1,4 @@
-# LPOO_Turma4_Grupo5 - Frogger Game
+# LDTS_Turma4_Grupo5 - Frogger Game
 
 ## INTRODUCTION
 
@@ -12,7 +12,7 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 
 - **Dangerous vehicles** - There will be a stage of moving vehicles that will pose a threat to our main character if he collides with them. These vehicles will be cars or trucks of different sizes and move at different speeds
 
-- **Hazardous river** - In this stage there will be two types of moving objects. There will be floating logs of wood that will work the same as the vehicles mentioned before, and there will be lily pads that will work as moving platforms to the frog
+- **Hazardous river** - In this stage there will be two types of moving objects. There will be floating logs of wood that will work as moving platforms to the frog, and there will be lily pads that will work the same the floating logs
 
 - **Health counter** - Our frog will be able to reach its destination within 3 tries. If it colides against a car or a log, or even if it falls into the river, the frog will be spawned to the starting position losing a heart each time it happens until it is left with none
 
