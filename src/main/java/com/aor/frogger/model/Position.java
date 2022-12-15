@@ -22,14 +22,6 @@ public class Position {
     //public int getX2() {return this.x2;}
     public int getY1() {return this.y1;}
     //public int getY2() {return this.y2;}
-    /*
-    public boolean intersects(Position other) {
-        return !(this.x1 >= other.x2 ||
-                this.x2  <= other.x1 ||
-                this.y1  >= other.y2 ||
-                this.y2 <= other.y1);
-    }
-    */
 
     public Position getLeft() {
         return new Position(x1-1,y1);
