@@ -23,7 +23,7 @@ public class LeafController extends GameController{
     }
     private void moveLeaf(Leaf leaf, Position position) {
         leaf.setPosition(position);
-        if(position.getX1() == 0)
+        if(position.getX1() == -1)
             leaf.setPosition(new Position(getModel().getLines().get(0).size(),position.getY1()));
     }
 }

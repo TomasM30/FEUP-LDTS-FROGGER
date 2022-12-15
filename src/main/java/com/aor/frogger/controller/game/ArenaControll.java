@@ -13,6 +13,8 @@ public class ArenaControll extends GameController {
     private final CarController carController;
     private final LogController logController;
     private final LeafController leafController;
+    private final RiverController riverController;
+    private final RoadController roadController;
 
 
     public ArenaControll(Arena arena) {
@@ -22,6 +24,8 @@ public class ArenaControll extends GameController {
         this.carController = new CarController(arena);
         this.logController = new LogController(arena);
         this.leafController = new LeafController(arena);
+        this.riverController = new RiverController(arena);
+        this.roadController = new RoadController(arena);
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
@@ -33,6 +37,8 @@ public class ArenaControll extends GameController {
             carController.step(game, action, time);
             logController.step(game,action,time);
             leafController.step(game,action,time);
+            riverController.step(game,action,time);
+            roadController.step(game,action,time);
         }
     }
 }

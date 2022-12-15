@@ -6,6 +6,7 @@ import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 
 public class FrogController extends GameController {
+    private long lastMovement;
     public FrogController(Arena arena) {
         super(arena);
     }
@@ -16,6 +17,7 @@ public class FrogController extends GameController {
         if (action == GUI.ACTION.RIGHT) moveFrogRight();
         if (action == GUI.ACTION.DOWN) moveFrogDown();
         if (action == GUI.ACTION.LEFT) moveFrogLeft();
+        if(action == GUI.ACTION.NONE) moveFrogAuto();
     }
 
     private void moveFrogLeft() {moveFrog(getModel().getFrog().getPosition().getLeft());}
@@ -26,7 +28,9 @@ public class FrogController extends GameController {
 
     private void moveFrogUp() {moveFrog(getModel().getFrog().getPosition().getUp());}
 
-    public void moveFrog(Position position) {
+    private void moveFrogAuto() {moveFrog(getModel().getFrog().getPosition());}
+
+    private void moveFrog(Position position) {
         getModel().getFrog().setPosition(position);
         if(getModel().isCar(position)) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
@@ -36,8 +40,25 @@ public class FrogController extends GameController {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
         }
+        if(getModel().isDirt(position)) {
+            return;
+        }
         if(getModel().isLeaf(position)) {
             getModel().getFrog().getPosition().getLeft();
         }
+        if(getModel().isLog(position)) {
+            getModel().getFrog().getPosition().getRight();
+        }
     }
+    /*
+    private void move(Frog frog) {
+        if(frog.getPosition().getY1()==2) {
+            frog.getPosition().getLeft();
+        }
+        if(frog.getPosition().getY1()==1) {
+            frog.getPosition().getRight();
+        }
+    }
+    */
+
 }

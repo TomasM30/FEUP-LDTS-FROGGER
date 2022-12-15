@@ -156,7 +156,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             }
             if(j == 0) {
                 for(int i = 0; i<line.length(); i++) {
-                    linhas.get(j).add(new Road(i, j));
+                    linhas.get(j).add(new Dirt(i, j));
                 }
                 continue;
             }
@@ -171,17 +171,10 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 for(int i = 0; i<line.length(); i++) {
                     if(line.charAt(i) == 'L'){
                         linhas.get(j).add(new Log(i,j));
-                        for(int h = i; h<line.length();h++) {
-                            if(line.charAt(i) == 'L') linhas.get(j).add(new Log(i,j));
-                            else linhas.get(j).add(new River(i,j));
-                        }
                     }
                     else if(line.charAt(i) == '@') {
                         linhas.get(j).add(new Leaf(i,j));
-                        for(int h = i; h<line.length();h++) {
-                            if(line.charAt(i) == '@') linhas.get(j).add(new Log(i,j));
-                            else linhas.get(j).add(new River(i,j));
-                        }
+
                     }
                     else linhas.get(j).add(new River(i,j));
                 }
