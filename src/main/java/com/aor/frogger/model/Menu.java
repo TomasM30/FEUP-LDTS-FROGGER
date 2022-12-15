@@ -35,10 +35,6 @@ public class Menu {
         return isSelected(1);
     }
 
-    //public boolean isSelectedEasy() {return isSelected(0);}
-
-    //public boolean isSelectedMedium() {return isSelected(1);}
-
     public boolean isSelectedStartGame() {
         return isSelected(0);
     }

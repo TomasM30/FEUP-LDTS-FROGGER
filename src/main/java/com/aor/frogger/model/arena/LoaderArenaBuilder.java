@@ -64,7 +64,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='L') logs.add(new Log(i,j));
+                if(line.charAt(i)=='&') logs.add(new Log(i,j));
             }
         }
         return logs;

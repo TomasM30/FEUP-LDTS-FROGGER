@@ -32,12 +32,6 @@ public class RiverController extends GameController{
         river.setPosition(position);
         if(position.getX1() == -1 && position.getY1()==2)
             river.setPosition(new Position(getModel().getLines().get(0).size(),position.getY1()));
-        /*
-        if(position.getX1() == 0 && position.getY1()==2)
-            river.setPosition(new Position(-1,position.getY1()));
-        if(position.getX1()==-1 && position.getY1()==2)
-            river.setPosition(new Position(getModel().getLines().get(0).size(), position.getY1()));
-        */
         if(position.getX1() == getModel().getLines().get(0).size() && position.getY1()==1)
             river.setPosition(new Position(0,position.getY1()));
     }

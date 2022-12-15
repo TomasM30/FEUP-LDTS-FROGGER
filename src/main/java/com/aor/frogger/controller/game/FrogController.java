@@ -50,15 +50,4 @@ public class FrogController extends GameController {
             getModel().getFrog().getPosition().getRight();
         }
     }
-    /*
-    private void move(Frog frog) {
-        if(frog.getPosition().getY1()==2) {
-            frog.getPosition().getLeft();
-        }
-        if(frog.getPosition().getY1()==1) {
-            frog.getPosition().getRight();
-        }
-    }
-    */
-
 }

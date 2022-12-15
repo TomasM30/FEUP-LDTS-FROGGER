@@ -85,25 +85,36 @@ public class LanternaGUI implements GUI {
         tg.setBackgroundColor(TextColor.Factory.fromString(bcolor));
         tg.putString(x, y + 1, "" + c);
     }
-    /*
-    private void drawCharacter(Position position,char c, String color) {
+
+    private void drawBg(int x, int y, char c, String color){
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        TerminalPosition p = new TerminalPosition(position.getX1(), position.getY1());
-        TerminalSize s = new TerminalSize(position.getX1(), position.getY1());
-        tg.drawRectangle(p,s,c);
+        if (y==2){
+            tg.setBackgroundColor(TextColor.Factory.fromString("#83BB61"));
+            tg.putString(x, y + 1, "$");
+        }
+        else if (y==1) {
+            tg.setBackgroundColor(TextColor.Factory.fromString("#815438"));
+            tg.putString(x, y + 1, "$");
+        }
+        else if (y==4 || y== 5){
+            tg.setBackgroundColor(TextColor.Factory.fromString("#808080"));
+            tg.putString(x, y + 1, "" + c);
+        }
+        else{
+            tg.setBackgroundColor(TextColor.Factory.fromString("#6F4E37"));
+            tg.putString(x, y + 1, "" + c);
+        }
     }
-    */
-
 
     @Override
-    public void drawFrog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'H', "#00FF00","#6F4E37");}
+    public void drawFrog(Position position) {drawBg(position.getX1(), position.getY1(), 'H', "#00FF00");}
 
     @Override
-    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), 'L', "#8B4513","#7FB3D5"); }
+    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), '&', "#815438","#7FB3D5"); }
 
     @Override
-    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#00FF00","#7FB3D5"); }
+    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#83BB61","#7FB3D5"); }
 
     @Override
     public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#0000FF","#808080"); }
