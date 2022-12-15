@@ -11,6 +11,7 @@ import java.io.IOException;
 public class ArenaControll extends GameController {
     private final FrogController frogController;
     private final CarController carController;
+    private final BackCarController backcarController;
     private final LogController logController;
     private final LeafController leafController;
     private final RiverController riverController;
@@ -22,6 +23,7 @@ public class ArenaControll extends GameController {
 
         this.frogController = new FrogController(arena);
         this.carController = new CarController(arena);
+        this.backcarController = new BackCarController(arena);
         this.logController = new LogController(arena);
         this.leafController = new LeafController(arena);
         this.riverController = new RiverController(arena);
@@ -35,6 +37,7 @@ public class ArenaControll extends GameController {
         else {
             frogController.step(game, action, time);
             carController.step(game, action, time);
+            backcarController.step(game,action,time);
             logController.step(game,action,time);
             leafController.step(game,action,time);
             riverController.step(game,action,time);

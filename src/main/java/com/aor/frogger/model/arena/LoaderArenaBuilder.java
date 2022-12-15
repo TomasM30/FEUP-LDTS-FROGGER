@@ -1,9 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
-import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
+import com.aor.frogger.model.*;
 import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
@@ -46,6 +43,18 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return cars;
     }
+    @Override
+    protected List<BackCar> createBackCars() {
+        List<BackCar> backcars = new ArrayList<>();
+        for (int j = 0; j < lines.size(); j++) {
+            String line = lines.get(j);
+            for (int i = 0; i < line.length(); i++) {
+                if (line.charAt(i) == 'A') backcars.add(new BackCar(i, j));
+            }
+        }
+        return backcars;
+    }
+
 
     @Override
     protected Frog createFrog() {
@@ -163,13 +172,14 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             if(j>lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
                     if(line.charAt(i) == 'C') linhas.get(j).add(new Car(i,j));
+                    else if (line.charAt(i) == 'A') linhas.get(j).add(new BackCar(i,j));
                     else linhas.get(j).add(new Road(i,j));
                 }
                 continue;
             }
             if(j<lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
-                    if(line.charAt(i) == 'L'){
+                    if(line.charAt(i) == '&'){
                         linhas.get(j).add(new Log(i,j));
                     }
                     else if(line.charAt(i) == '@') {

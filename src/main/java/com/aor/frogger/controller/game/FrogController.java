@@ -32,7 +32,7 @@ public class FrogController extends GameController {
 
     private void moveFrog(Position position) {
         getModel().getFrog().setPosition(position);
-        if(getModel().isCar(position)) {
+        if(getModel().isCar(position) || getModel().isBackCar(position)) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
         }

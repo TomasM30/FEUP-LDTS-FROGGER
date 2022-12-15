@@ -14,6 +14,7 @@ public interface GUI {
     void drawLeaf(Position position);
 
     void drawCar(Position position);
+    void drawBackCar(Position position);
 
     void drawText(Position position, String text, String color);
 

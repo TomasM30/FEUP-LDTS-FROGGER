@@ -12,6 +12,7 @@ public class Arena {
     private final int height;
     private Frog frog;
     private List<Car> cars;
+    private List<BackCar> backcars;
     private List<Log> logs;
     private List<Leaf> leaves;
     private List<Road> roads;
@@ -29,6 +30,7 @@ public class Arena {
     public List<List<Object>> getLines() {return this.lines;}
     public Frog getFrog() {return this.frog;}
     public List<Car> getCars() {return this.cars;}
+    public List<BackCar> getBackCar() {return this.backcars;}
     public List<Log> getLogs() {return this.logs;}
     public List<Leaf> getLeaves() {return this.leaves;}
     public List<River> getRivers() {return this.rivers;}
@@ -37,6 +39,7 @@ public class Arena {
 
     public void setFrog(Frog a) {this.frog = a;}
     public void setCars(List<Car> cars) {this.cars = cars;}
+    public void setBackCar(List<BackCar> backcars) {this.backcars = backcars;}
     public void setLogs(List<Log> logs) {this.logs = logs;}
     public void setLeaves(List<Leaf> leaves) {this.leaves = leaves;}
     public void setLines(List<List<Object>> lines) {this.lines = lines;}
@@ -47,6 +50,12 @@ public class Arena {
     public boolean isCar(Position position) {
         for (Car car : cars)
             if (car.getPosition().equals(position))
+                return true;
+        return false;
+    }
+    public boolean isBackCar(Position position) {
+        for (BackCar Backcar : backcars)
+            if (Backcar.getPosition().equals(position))
                 return true;
         return false;
     }

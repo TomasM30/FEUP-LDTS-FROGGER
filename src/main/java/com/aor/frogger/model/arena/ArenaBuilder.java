@@ -1,9 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
-import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
+import com.aor.frogger.model.*;
 import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
@@ -18,6 +15,7 @@ public abstract class ArenaBuilder {
         arena.setRivers(createRivers());
         arena.setDirts(createDirt());
         arena.setCars(createCars());
+        arena.setBackCar(createBackCars());
         arena.setFrog(createFrog());
         arena.setLeaves(createLeaves());
         arena.setLogs(createLogs());
@@ -27,6 +25,7 @@ public abstract class ArenaBuilder {
     }
 
     protected abstract List<Car> createCars();
+    protected abstract List<BackCar> createBackCars();
     protected abstract Frog createFrog();
     protected abstract List<Log> createLogs();
     protected abstract List<Leaf> createLeaves();
