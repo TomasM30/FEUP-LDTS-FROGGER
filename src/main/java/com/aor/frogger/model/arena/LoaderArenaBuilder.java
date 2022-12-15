@@ -19,7 +19,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     public LoaderArenaBuilder(String level) throws IOException {
         this.level = level;
 
-        URL resource = LoaderArenaBuilder.class.getResource("/levels/level.lvl"); // mudar isto
+        URL resource = LoaderArenaBuilder.class.getResource("/levels/level.lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -97,7 +97,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='#') roads.add(new Road(i,j));
+                if(line.charAt(i)!= '-' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != '@' && line.charAt(i) != '&') roads.add(new Road(i,j));
             }
         }
         return roads;
@@ -108,7 +108,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='%') dirts.add(new Dirt(i,j));
+                if(line.charAt(i)!= '-' && line.charAt(i) != '#' && line.charAt(i) != 'C' && line.charAt(i) != 'A' && line.charAt(i) != '@' && line.charAt(i) != '&') dirts.add(new Dirt(i,j));
             }
         }
         return dirts;
@@ -120,7 +120,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='-') rivers.add(new River(i,j));
+                if(line.charAt(i)!='#' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != 'A'&& line.charAt(i) != 'C') rivers.add(new River(i,j));
             }
         }
         return rivers;

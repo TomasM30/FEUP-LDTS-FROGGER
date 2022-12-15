@@ -40,8 +40,8 @@ public class ArenaControll extends GameController {
             backcarController.step(game,action,time);
             logController.step(game,action,time);
             leafController.step(game,action,time);
-            riverController.step(game,action,time);
-            roadController.step(game,action,time);
+            //riverController.step(game,action,time);
+            //roadController.step(game,action,time);
         }
     }
 }
