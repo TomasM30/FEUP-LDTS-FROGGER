@@ -2,8 +2,10 @@ package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.GameOver;
 import com.aor.frogger.model.Menu;
 import com.aor.frogger.model.arena.Arena;
+import com.aor.frogger.states.GameOverState;
 import com.aor.frogger.states.MenuState;
 
 import java.io.IOException;
@@ -29,8 +31,11 @@ public class ArenaControll extends GameController {
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getFrog().getLives() == 0){
+        if (action == GUI.ACTION.QUIT){
             game.setState(new MenuState(new Menu()));
+        }
+        if(getModel().getFrog().getLives() == 0){
+            game.setState(new GameOverState(new GameOver()));
         }
         else {
             frogController.step(game, action, time);
