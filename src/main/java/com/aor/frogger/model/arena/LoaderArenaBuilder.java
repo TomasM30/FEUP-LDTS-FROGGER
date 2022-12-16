@@ -1,9 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
-import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
+import com.aor.frogger.model.*;
 import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;
@@ -22,7 +19,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     public LoaderArenaBuilder(String level) throws IOException {
         this.level = level;
 
-        URL resource = LoaderArenaBuilder.class.getResource("/levels/level.lvl"); // mudar isto
+        URL resource = LoaderArenaBuilder.class.getResource("/levels/level.lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -46,6 +43,18 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return cars;
     }
+    @Override
+    protected List<BackCar> createBackCars() {
+        List<BackCar> backcars = new ArrayList<>();
+        for (int j = 0; j < lines.size(); j++) {
+            String line = lines.get(j);
+            for (int i = 0; i < line.length(); i++) {
+                if (line.charAt(i) == 'A') backcars.add(new BackCar(i, j));
+            }
+        }
+        return backcars;
+    }
+
 
     @Override
     protected Frog createFrog() {
@@ -88,7 +97,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='#') roads.add(new Road(i,j));
+                if(line.charAt(i)!= '-' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != '@' && line.charAt(i) != '&') roads.add(new Road(i,j));
             }
         }
         return roads;
@@ -99,7 +108,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='%') dirts.add(new Dirt(i,j));
+                if(line.charAt(i)!= '-' && line.charAt(i) != '#' && line.charAt(i) != 'C' && line.charAt(i) != 'A' && line.charAt(i) != '@' && line.charAt(i) != '&') dirts.add(new Dirt(i,j));
             }
         }
         return dirts;
@@ -111,7 +120,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='-') rivers.add(new River(i,j));
+                if(line.charAt(i)!='#' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != 'A'&& line.charAt(i) != 'C') rivers.add(new River(i,j));
             }
         }
         return rivers;
@@ -163,13 +172,14 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             if(j>lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
                     if(line.charAt(i) == 'C') linhas.get(j).add(new Car(i,j));
+                    else if (line.charAt(i) == 'A') linhas.get(j).add(new BackCar(i,j));
                     else linhas.get(j).add(new Road(i,j));
                 }
                 continue;
             }
             if(j<lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
-                    if(line.charAt(i) == 'L'){
+                    if(line.charAt(i) == '&'){
                         linhas.get(j).add(new Log(i,j));
                     }
                     else if(line.charAt(i) == '@') {

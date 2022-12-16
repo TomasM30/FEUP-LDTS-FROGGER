@@ -23,7 +23,7 @@ public class FrogController extends GameController {
                 this.lastMovement = time;
             }
         }
-        if(getModel().isLog(getModel().getFrog().getPosition())){
+        if (getModel().isLog(getModel().getFrog().getPosition())){
             if (time - lastMovement > 500) {
                 moveFrogRight();
                 this.lastMovement = time;
@@ -42,11 +42,19 @@ public class FrogController extends GameController {
 
     private void moveFrog(Position position) {
         getModel().getFrog().setPosition(position);
-        if (getModel().isCar(position)) {
+        if (getModel().isCar(position))
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
+        if(position.getX1() < 0){
+            getModel().getFrog().setPosition(new Position(19, position.getY1()));
+        }
+        if (position.getX1() > 19){
+            getModel().getFrog().setPosition(new Position(0, position.getY1()));
+        }
+        if(getModel().isCar(position) || getModel().isBackCar(position)) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
         }
-        if (getModel().isRiver(position)) {
+        if (getModel().isRiver(position) && !(getModel().isLog(position)) && !(getModel().isLeaf(position))) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
             getModel().getFrog().decreaseLives();
         }
