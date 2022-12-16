@@ -4,8 +4,8 @@ import com.aor.frogger.Game;
 import com.aor.frogger.controller.Controller;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.GameOver;
-import com.aor.frogger.model.Menu;
-import com.aor.frogger.states.MenuState;
+import com.aor.frogger.model.arena.LoaderArenaBuilder;
+import com.aor.frogger.states.GameState;
 
 import java.io.IOException;
 
@@ -16,8 +16,15 @@ public class GameOverController extends Controller<GameOver> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
+            case UP:
+                getModel().previousPhrase();
+                break;
+            case DOWN:
+                getModel().nextPhrase();
+                break;
             case SELECT:
-                game.setState(new MenuState(new Menu()));
+                if(getModel().isSelectedExit()) game.setState(null);
+                if(getModel().isSelectedPlayAgain()) game.setState(new GameState(new LoaderArenaBuilder("Start Game").createArena()));
         }
     }
 }

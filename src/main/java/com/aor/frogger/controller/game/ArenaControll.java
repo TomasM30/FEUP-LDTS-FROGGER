@@ -3,9 +3,11 @@ package com.aor.frogger.controller.game;
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.GameOver;
+import com.aor.frogger.model.GameWon;
 import com.aor.frogger.model.Menu;
 import com.aor.frogger.model.arena.Arena;
 import com.aor.frogger.states.GameOverState;
+import com.aor.frogger.states.GameWonState;
 import com.aor.frogger.states.MenuState;
 
 import java.io.IOException;
@@ -38,6 +40,9 @@ public class ArenaControll extends GameController {
         }
         if(getModel().getFrog().getLives() == 0){
             game.setState(new GameOverState(new GameOver()));
+        }
+        if(getModel().getFrog().getPosition().getY1() == 0) {
+            game.setState(new GameWonState(new GameWon()));
         }
         else {
             frogController.step(game, action, time);
