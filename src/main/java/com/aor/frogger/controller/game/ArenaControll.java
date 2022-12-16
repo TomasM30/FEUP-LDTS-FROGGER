@@ -17,7 +17,7 @@ public class ArenaControll extends GameController {
     private final CarController carController;
     private final BackCarController backcarController;
     private final LogController logController;
-    private final LeafController leafController;
+    private final LilyPadController leafController;
     private final RiverController riverController;
     private final RoadController roadController;
 
@@ -29,7 +29,7 @@ public class ArenaControll extends GameController {
         this.carController = new CarController(arena);
         this.backcarController = new BackCarController(arena);
         this.logController = new LogController(arena);
-        this.leafController = new LeafController(arena);
+        this.leafController = new LilyPadController(arena);
         this.riverController = new RiverController(arena);
         this.roadController = new RoadController(arena);
     }

@@ -14,7 +14,7 @@ public class LilyPadController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 300) {
+        if (time - lastMovement > 100) {
 
             for (LilyPad lilyPad : getModel().getLilyPads())
                 moveLilyPad(lilyPad, lilyPad.getPosition().getLeft());
