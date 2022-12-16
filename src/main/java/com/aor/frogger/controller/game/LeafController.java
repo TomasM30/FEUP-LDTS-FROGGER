@@ -14,7 +14,7 @@ public class LeafController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 100) {
 
             for (Leaf leaf : getModel().getLeaves())
                 moveLeaf(leaf, leaf.getPosition().getLeft());
@@ -22,8 +22,14 @@ public class LeafController extends GameController{
         }
     }
     private void moveLeaf(Leaf leaf, Position position) {
+        if (leaf.getPosition().equals(getModel().getFrog().getPosition())){
+            getModel().getFrog().setPosition(position);
+            if (position.getX1() == -1) {
+                getModel().getFrog().setPosition(new Position(getModel().getLines().get(0).size()-1, position.getY1()));
+            }
+        }
         leaf.setPosition(position);
         if(position.getX1() == -1)
-            leaf.setPosition(new Position(getModel().getLines().get(0).size(),position.getY1()));
+            leaf.setPosition(new Position(getModel().getLines().get(0).size()-1,position.getY1()));
     }
 }

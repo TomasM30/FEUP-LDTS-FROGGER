@@ -17,6 +17,7 @@ public class FrogController extends GameController {
         if (action == GUI.ACTION.RIGHT) moveFrogRight();
         if (action == GUI.ACTION.DOWN) moveFrogDown();
         if (action == GUI.ACTION.LEFT) moveFrogLeft();
+        /*
         if (getModel().isLeaf(getModel().getFrog().getPosition())) {
             if (time - lastMovement > 500) {
                 moveFrogLeft();
@@ -29,6 +30,7 @@ public class FrogController extends GameController {
                 this.lastMovement = time;
             }
         }
+        */
     }
 
     private void moveFrogLeft() {moveFrog(getModel().getFrog().getPosition().getLeft());}
@@ -44,11 +46,11 @@ public class FrogController extends GameController {
         getModel().getFrog().setPosition(position);
         if (getModel().isCar(position))
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
-        if(position.getX1() < 0){
-            getModel().getFrog().setPosition(new Position(19, position.getY1()));
+        if(position.getX1() ==-1){
+            getModel().getFrog().setPosition(new Position(getModel().getLines().get(0).size()-1,position.getY1()));
         }
-        if (position.getX1() > 19){
-            getModel().getFrog().setPosition(new Position(0, position.getY1()));
+        if (position.getX1() == getModel().getLines().get(0).size()){
+            getModel().getFrog().setPosition(new Position(0,position.getY1()));
         }
         if(getModel().isCar(position) || getModel().isBackCar(position)) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));

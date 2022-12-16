@@ -14,7 +14,7 @@ public class LogController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 300) {
 
             for (Log log : getModel().getLogs())
                 moveLog(log, log.getPosition().getRight());
@@ -22,6 +22,12 @@ public class LogController extends GameController{
         }
     }
     private void moveLog(Log log, Position position) {
+        if(log.getPosition().equals(getModel().getFrog().getPosition())) {
+            getModel().getFrog().setPosition(position);
+            if (position.getX1() == getModel().getLines().get(0).size()) {
+                getModel().getFrog().setPosition(new Position(0, position.getY1()));
+            }
+        }
         log.setPosition(position);
         if(position.getX1() == getModel().getLines().get(0).size())
             log.setPosition(new Position(0,position.getY1()));
