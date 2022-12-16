@@ -14,7 +14,7 @@ public class Arena {
     private List<Car> cars;
     private List<BackCar> backcars;
     private List<Log> logs;
-    private List<Leaf> leaves;
+    private List<LilyPad> lilyPads;
     private List<Road> roads;
     private List<River> rivers;
     private List<Dirt> dirts;
@@ -32,7 +32,7 @@ public class Arena {
     public List<Car> getCars() {return this.cars;}
     public List<BackCar> getBackCar() {return this.backcars;}
     public List<Log> getLogs() {return this.logs;}
-    public List<Leaf> getLeaves() {return this.leaves;}
+    public List<LilyPad> getLilyPads(){return this.lilyPads;}
     public List<River> getRivers() {return this.rivers;}
     public List<Road> getRoads() {return this.roads;}
     public List<Dirt> getDirts(){return this.dirts;}
@@ -41,7 +41,7 @@ public class Arena {
     public void setCars(List<Car> cars) {this.cars = cars;}
     public void setBackCar(List<BackCar> backcars) {this.backcars = backcars;}
     public void setLogs(List<Log> logs) {this.logs = logs;}
-    public void setLeaves(List<Leaf> leaves) {this.leaves = leaves;}
+    public void setLilyPads(List<LilyPad> lilyPads) {this.lilyPads = lilyPads;}
     public void setLines(List<List<Object>> lines) {this.lines = lines;}
     public void setRoads(List<Road> roads) {this.roads = roads;}
     public void setRivers(List<River> rivers) {this.rivers = rivers;}
@@ -65,9 +65,9 @@ public class Arena {
                 return true;
         return false;
     }
-    public boolean isLeaf(Position position) {
-        for (Leaf leaf : leaves)
-            if (leaf.getPosition().equals(position))
+    public boolean isLilyPad(Position position) {
+        for (LilyPad lilyPad : lilyPads)
+            if (lilyPad.getPosition().equals(position))
                 return true;
         return false;
     }

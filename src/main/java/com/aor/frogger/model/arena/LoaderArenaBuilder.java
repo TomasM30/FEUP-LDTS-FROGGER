@@ -78,18 +78,18 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return logs;
     }
-
     @Override
-    protected List<Leaf> createLeaves() {
-        List<Leaf> leaves = new ArrayList<>();
+    protected List<LilyPad> createLilyPads() {
+        List<LilyPad> lilypads = new ArrayList<>();
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='@') leaves.add(new Leaf(i,j));
+                if(line.charAt(i)=='@') lilypads.add(new LilyPad(i,j));
             }
         }
-        return leaves;
+        return lilypads;
     }
+
 
     @Override
     protected List<Road> createRoads() {
@@ -183,7 +183,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                         linhas.get(j).add(new Log(i,j));
                     }
                     else if(line.charAt(i) == '@') {
-                        linhas.get(j).add(new Leaf(i,j));
+                        linhas.get(j).add(new LilyPad(i,j));
 
                     }
                     else linhas.get(j).add(new River(i,j));

@@ -3,6 +3,7 @@ package com.aor.frogger.controller.game;
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.GameOver;
+import com.aor.frogger.model.LilyPad;
 import com.aor.frogger.model.Menu;
 import com.aor.frogger.model.arena.Arena;
 import com.aor.frogger.states.GameOverState;
@@ -15,7 +16,7 @@ public class ArenaControll extends GameController {
     private final CarController carController;
     private final BackCarController backcarController;
     private final LogController logController;
-    private final LeafController leafController;
+    private final LilyPadController lilyPadController;
     private final RiverController riverController;
     private final RoadController roadController;
 
@@ -27,7 +28,7 @@ public class ArenaControll extends GameController {
         this.carController = new CarController(arena);
         this.backcarController = new BackCarController(arena);
         this.logController = new LogController(arena);
-        this.leafController = new LeafController(arena);
+        this.lilyPadController = new LilyPadController(arena);
         this.riverController = new RiverController(arena);
         this.roadController = new RoadController(arena);
     }
@@ -44,7 +45,7 @@ public class ArenaControll extends GameController {
             carController.step(game, action, time);
             backcarController.step(game,action,time);
             logController.step(game,action,time);
-            leafController.step(game,action,time);
+            lilyPadController.step(game,action,time);
             //riverController.step(game,action,time);
             //roadController.step(game,action,time);
         }

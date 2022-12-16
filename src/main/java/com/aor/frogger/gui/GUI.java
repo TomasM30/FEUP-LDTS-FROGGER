@@ -11,7 +11,7 @@ public interface GUI {
 
     void drawLog(Position position);
 
-    void drawLeaf(Position position);
+    void drawLilyPad(Position position);
 
     void drawCar(Position position);
     void drawBackCar(Position position);

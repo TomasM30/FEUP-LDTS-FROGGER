@@ -18,10 +18,10 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui,getModel().getDirts(), new DirtViewer());
         drawElements(gui,getModel().getRoads(), new RoadViewer());
         drawElements(gui, getModel().getLogs(), new LogViewer());
+        drawElements(gui, getModel().getLilyPads(), new LilyPadViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());
         drawElements(gui,getModel().getBackCar(), new BackCarViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());
-        drawElements(gui, getModel().getLeaves(), new LeafViewer());
 
         gui.drawText(new Position(0, 0), "Lives: " + getModel().getFrog().getLives(), "#FFD700");
     }

@@ -17,8 +17,8 @@ public abstract class ArenaBuilder {
         arena.setCars(createCars());
         arena.setBackCar(createBackCars());
         arena.setFrog(createFrog());
-        arena.setLeaves(createLeaves());
         arena.setLogs(createLogs());
+        arena.setLilyPads(createLilyPads());
         arena.setLines(createLines());
 
         return arena;
@@ -28,7 +28,7 @@ public abstract class ArenaBuilder {
     protected abstract List<BackCar> createBackCars();
     protected abstract Frog createFrog();
     protected abstract List<Log> createLogs();
-    protected abstract List<Leaf> createLeaves();
+    protected abstract List<LilyPad> createLilyPads();
     protected abstract List<Road> createRoads();
 
     protected abstract List<Dirt> createDirt();

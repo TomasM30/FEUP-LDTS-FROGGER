@@ -114,7 +114,7 @@ public class LanternaGUI implements GUI {
     public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), '&', "#815438","#7FB3D5"); }
 
     @Override
-    public void drawLeaf(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#83BB61","#7FB3D5"); }
+    public void drawLilyPad(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#83BB61","#7FB3D5"); }
 
     @Override
     public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#FFFF00","#808080"); }

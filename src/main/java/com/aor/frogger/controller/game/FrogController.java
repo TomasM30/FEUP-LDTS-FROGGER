@@ -56,7 +56,7 @@ public class FrogController extends GameController {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2-1,6 ));
             getModel().getFrog().decreaseLives();
         }
-        if (getModel().isRiver(position) && !(getModel().isLog(position)) && !(getModel().isLeaf(position))) {
+        if (getModel().isRiver(position) && !(getModel().isLog(position)) && !(getModel().isLilyPad(position))) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
             getModel().getFrog().decreaseLives();
         }
