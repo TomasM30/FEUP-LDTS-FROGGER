@@ -1,3 +1,4 @@
+/*
 package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
@@ -36,3 +37,5 @@ public class RiverController extends GameController{
             river.setPosition(new Position(0,position.getY1()));
     }
 }
+
+*/

@@ -24,7 +24,7 @@ class ArenaViewerTest {
 
         arena.setLogs(Arrays.asList(new Log(1, 5), new Log(2, 5), new Log(3, 5)));
         arena.setCars(Arrays.asList(new Car(4, 1), new Car(5, 2)));
-        arena.setLeaves(Arrays.asList(new Leaf(2,4),new Leaf(1,4),new Leaf(5,4)));
+        arena.setLilyPads(Arrays.asList(new LilyPad(2,4),new LilyPad(1,4),new LilyPad(5,4)));
         arena.setFrog(new Frog(5, 8,3));
     }
 
