@@ -1,4 +1,4 @@
-package com.aor.frogger;
+package com.aor.frogger.Viewer;
 
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.Frog;
@@ -20,7 +20,7 @@ class FrogViewerTest {
     }
 
     @Test
-    void drawElement() {
+    void drawFrog() {
         viewer.draw(frog, gui);
         Mockito.verify(gui, Mockito.times(1)).drawFrog(frog.getPosition());
     }

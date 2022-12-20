@@ -24,7 +24,7 @@ public class BackCarController extends GameController{
     private void moveBackCar(BackCar backcar, Position position) {
         backcar.setPosition(position);
         if(position.getX1() == 0)
-            backcar.setPosition(new Position(getModel().getLines().get(0).size(),position.getY1()));
+            backcar.setPosition(new Position(getModel().getWidth()-1,position.getY1()));
         if (getModel().getFrog().getPosition().equals(position)) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
             getModel().getFrog().decreaseLives();

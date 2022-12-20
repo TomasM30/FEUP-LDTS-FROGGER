@@ -71,20 +71,9 @@ public class Arena {
                 return true;
         return false;
     }
-    public boolean isRoad(Position position) {
-        for (Road road : roads)
-            if(road.getPosition().equals(position)) return true;
-        return false;
-    }
     public boolean isRiver(Position position) {
         for (River river : rivers)
             if(river.getPosition().equals(position)) return true;
-        return false;
-    }
-
-    public boolean isDirt(Position position){
-        for (Dirt dirt : dirts)
-            if(dirt.getPosition().equals(position)) return true;
         return false;
     }
 }

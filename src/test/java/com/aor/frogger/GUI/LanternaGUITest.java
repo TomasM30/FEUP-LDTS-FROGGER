@@ -1,7 +1,7 @@
+package com.aor.frogger.GUI;
+
 import com.aor.frogger.gui.LanternaGUI;
 import com.aor.frogger.model.Position;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -27,10 +27,10 @@ class LanternaGUITest {
 
     @Test
     void drawFrog() {
-        gui.drawFrog(new Position(1, 3));
+        gui.drawFrog(new Position(5, 10));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 215, 0));
-        Mockito.verify(tg, Mockito.times(1)).drawRectangle(new TerminalPosition(1,3), new TerminalSize(2,2), 'H');
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "H");
     }
 
     @Test

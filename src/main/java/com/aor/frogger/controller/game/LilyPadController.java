@@ -25,11 +25,11 @@ public class LilyPadController extends GameController{
         if (lilyPad.getPosition().equals(getModel().getFrog().getPosition())){
             getModel().getFrog().setPosition(position);
             if (position.getX1() == -1) {
-                getModel().getFrog().setPosition(new Position(getModel().getLines().get(0).size()-1, position.getY1()));
+                getModel().getFrog().setPosition(new Position(getModel().getWidth()-1, position.getY1()));
             }
         }
         lilyPad.setPosition(position);
         if(position.getX1() == -1)
-            lilyPad.setPosition(new Position(getModel().getLines().get(0).size()-1,position.getY1()));
+            lilyPad.setPosition(new Position(getModel().getWidth()-1,position.getY1()));
     }
 }

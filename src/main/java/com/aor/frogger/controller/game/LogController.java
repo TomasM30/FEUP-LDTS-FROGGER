@@ -24,12 +24,12 @@ public class LogController extends GameController{
     private void moveLog(Log log, Position position) {
         if(log.getPosition().equals(getModel().getFrog().getPosition())) {
             getModel().getFrog().setPosition(position);
-            if (position.getX1() == getModel().getLines().get(0).size()) {
+            if (position.getX1() == getModel().getWidth()) {
                 getModel().getFrog().setPosition(new Position(0, position.getY1()));
             }
         }
         log.setPosition(position);
-        if(position.getX1() == getModel().getLines().get(0).size())
+        if(position.getX1() == getModel().getWidth())
             log.setPosition(new Position(0,position.getY1()));
     }
 }
