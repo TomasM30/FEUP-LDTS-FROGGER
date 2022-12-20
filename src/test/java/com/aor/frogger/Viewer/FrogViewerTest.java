@@ -1,7 +1,7 @@
 package com.aor.frogger.Viewer;
 
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Frog;
+import com.aor.frogger.model.game.Frog;
 import com.aor.frogger.viewer.FrogViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -2,7 +2,7 @@ package com.aor.frogger.states;
 
 import com.aor.frogger.controller.Controller;
 import com.aor.frogger.controller.game.GameWonController;
-import com.aor.frogger.model.GameWon;
+import com.aor.frogger.model.game.GameWon;
 import com.aor.frogger.viewer.GameWonViewer;
 import com.aor.frogger.viewer.Viewer;
 

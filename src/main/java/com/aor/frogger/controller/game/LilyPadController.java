@@ -2,7 +2,7 @@ package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.LilyPad;
+import com.aor.frogger.model.game.LilyPad;
 import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 

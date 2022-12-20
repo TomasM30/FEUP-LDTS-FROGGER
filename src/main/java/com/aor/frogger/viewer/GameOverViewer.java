@@ -1,7 +1,7 @@
 package com.aor.frogger.viewer;
 
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.GameOver;
+import com.aor.frogger.model.game.GameOver;
 import com.aor.frogger.model.Position;
 
 public class GameOverViewer extends Viewer<GameOver>{

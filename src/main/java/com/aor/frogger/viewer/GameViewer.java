@@ -1,7 +1,7 @@
 package com.aor.frogger.viewer;
 
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Element;
+import com.aor.frogger.model.game.Element;
 import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 

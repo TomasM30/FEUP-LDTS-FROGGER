@@ -2,7 +2,7 @@ package com.aor.frogger.states;
 
 import com.aor.frogger.controller.Controller;
 import com.aor.frogger.controller.game.GameOverController;
-import com.aor.frogger.model.GameOver;
+import com.aor.frogger.model.game.GameOver;
 import com.aor.frogger.viewer.GameOverViewer;
 import com.aor.frogger.viewer.Viewer;
 

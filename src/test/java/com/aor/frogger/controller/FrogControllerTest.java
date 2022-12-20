@@ -1,7 +1,7 @@
 package com.aor.frogger.controller;
 
 import com.aor.frogger.controller.game.FrogController;
-import com.aor.frogger.model.Frog;
+import com.aor.frogger.model.game.Frog;
 import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 import org.junit.jupiter.api.BeforeEach;

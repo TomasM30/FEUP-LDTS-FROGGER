@@ -1,4 +1,4 @@
-package com.aor.frogger.model;
+package com.aor.frogger.model.game;
 
 import java.util.Arrays;
 import java.util.List;

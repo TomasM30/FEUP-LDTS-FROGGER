@@ -1,10 +1,10 @@
 /*
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
+import com.aor.frogger.model.game.Car;
+import com.aor.frogger.model.game.Frog;
 import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
+import com.aor.frogger.model.game.Log;
 import com.aor.frogger.model.game.Dirt;
 import com.aor.frogger.model.game.River;
 import com.aor.frogger.model.game.Road;

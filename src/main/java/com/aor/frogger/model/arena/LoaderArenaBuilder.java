@@ -1,9 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.*;
-import com.aor.frogger.model.game.Dirt;
-import com.aor.frogger.model.game.River;
-import com.aor.frogger.model.game.Road;
+import com.aor.frogger.model.game.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

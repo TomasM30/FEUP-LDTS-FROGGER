@@ -1,7 +1,7 @@
 package com.aor.frogger;
 
 import com.aor.frogger.gui.LanternaGUI;
-import com.aor.frogger.model.Menu;
+import com.aor.frogger.model.game.Menu;
 import com.aor.frogger.states.MenuState;
 import com.aor.frogger.states.State;
 

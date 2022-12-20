@@ -1,5 +1,7 @@
-package com.aor.frogger.model;
+package com.aor.frogger.model.game;
 
+
+import com.aor.frogger.model.Position;
 
 public class Element {
     private Position position;

@@ -3,7 +3,7 @@ package com.aor.frogger.controller.game;
 import com.aor.frogger.Game;
 import com.aor.frogger.controller.Controller;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.GameWon;
+import com.aor.frogger.model.game.GameWon;
 import com.aor.frogger.model.arena.LoaderArenaBuilder;
 import com.aor.frogger.states.GameState;
 
