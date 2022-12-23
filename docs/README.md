@@ -123,18 +123,18 @@ This design can be found in the following files: “GameState”, “GameOverSta
 -------------------------------------------------------------------------------------------
 ### UML (It shows the Patterns)
 
-![](Screenshot from 2022-12-23 16-29-10.png)
+![](https://github.com/FEUP-LDTS-2022/project-l04gr05/blob/Lima/docs/Screenshot%20from%202022-12-23%2016-29-10.png)
 
 -------------------------------------------------------------------------------------------
 ### TESTING
 
 **Intellij Coverage**
 
-![](Screenshot from 2022-12-23 22-09-42.png)
+![](https://github.com/FEUP-LDTS-2022/project-l04gr05/blob/Lima/docs/Screenshot%20from%202022-12-23%2022-09-42.png)
 
 **Mutation Testing Report**
 
-![](Screenshot from 2022-12-23 22-10-22.png)
+![](https://github.com/FEUP-LDTS-2022/project-l04gr05/blob/Lima/docs/Screenshot%20from%202022-12-23%2022-10-22.png)
 
 We tried to implement a lot of tests using mockito and we used once the PBT.
 
