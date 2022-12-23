@@ -17,7 +17,7 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 - **Health counter** - Our frog will be able to reach its destination within 3 tries. If it colides against a car or a truck, or even if it falls into the river, the frog will be spawned to the starting position losing a heart each time it happens until it is left with none
 
 
-###DESIGN
+### DESIGN
 -------------------------------------------------------------------------------------------
 #### THE GAME DISPLAYS SCREENS AND ALLOWS USER INPUT BASED ON THE CURRENT STATE
 
@@ -44,7 +44,7 @@ These classes can be found in the following files: “GameState”, “GameOverS
 
 **Problem in Context**
 
-In our game, we have several objects that that may or not move across the screen. We need to display tgem on the screen and allow the user to interact with it.
+In our game, we have several objects that that may or not move across the screen. We need to display them on the screen and allow the user to interact with them.
 
 **Patterns**
 
@@ -80,12 +80,28 @@ We need to implement various behaviors for different game elements, such as the 
 
 **Patterns**
 
-The Strategy pattern allows us to define multiple ways to perform a task and switch between them at runtime. This is useful in our game as we can change the behavior of a game element by simply changing its strategy. For example, we can define different ways for the frog to move and interact with the elements in the arena and choose the appropriate one at runtime..
+In our game, we have implemented the Strategy pattern to allow for flexible and dynamic behavior of game elements. This pattern allows us to define multiple ways for an element to perform a task and easily switch between them during runtime. For example, we can define different strategies for the frog to move and interact with other elements in the arena, and choose the appropriate one based on the current game situation. This helps us to easily customize the behavior of elements and make the game more dynamic and engaging for the player.
 
 **Consequences:**
 
 - The Strategy pattern enables us to dynamically alter the behavior of game elements during execution
 - Makes the code more modular and easier to understand, and follows the open-closed principle by allowing for new behaviors without modifying existing code
+-------------------------------------------------------------------------------------------
+#### DIFFERENT OBJ
+
+**Problem in Context**
+
+There is a need to create element viewers and controllers in a flexible way, as there are multiple types of elements that require them. It is important to have a flexible solution that allows us to easily create them for new types of elements without having to make changes to the existing codebase.
+
+**Patterns**
+
+The Factory Method helps us create things called element viewers and controllers in a way that is easy to change and use for many different types of elements. It does this by hiding the details of how the viewers and controllers are made and making it easy to add new types. This makes the code easier to understand and easier to change if we need to.
+
+**Consequences:**
+
+- The factory method lets us make viewers and controllers in a way that can be changed and expanded easily
+- We can add new types of elements by making new viewer and controller classes and adding them to the factory method
+- Makes the code cleaner and easier to fix if there are problems
 -------------------------------------------------------------------------------------------
 
 
