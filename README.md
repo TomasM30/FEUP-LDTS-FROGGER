@@ -16,8 +16,8 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 
 - **Health counter** - Our frog will be able to reach its destination within 3 tries. If it colides against a car or a truck, or even if it falls into the river, the frog will be spawned to the starting position losing a heart each time it happens until it is left with none
 
-
-###DESIGN
+ 
+DESIGN
 -------------------------------------------------------------------------------------------
 #### THE GAME DISPLAYS SCREENS AND ALLOWS USER INPUT BASED ON THE CURRENT STATE
 
@@ -87,12 +87,36 @@ The Strategy pattern allows us to define multiple ways to perform a task and swi
 - The Strategy pattern enables us to dynamically alter the behavior of game elements during execution
 - Makes the code more modular and easier to understand, and follows the open-closed principle by allowing for new behaviors without modifying existing code
 -------------------------------------------------------------------------------------------
+#### UML (Shows the Patterns)
 
-
+![](../../Pictures/Screenshot from 2022-12-23 16-29-10.png)
+-------------------------------------------------------------------------------------------
 ### TESTING
 
-Vou colocar fotos aqui
+**Intellij Coverage**
+
+![](../../Pictures/Screenshot from 2022-12-23 22-09-42.png)
+
+**Mutation Testing Report**
+
+![](../../Pictures/Screenshot from 2022-12-23 22-10-22.png)
+
+We tried to implement a lot of tests using mockito and we used once the PBT.
 
 ### Refactoring
 
 At the end we have noticed some things that we could eliminate, or simplify in order to make our code more readable and simpler. For example, we had a lot of objects that were doing nothing in some functions; classes and functions that were unnecessary and we have eliminated all the comments that we had in our code. Besides that, we have tried to organize our data (sometimes we have self encapsulated fields, for example), simplified some method calls by, for example, removing parameters that weren’t being used and renaming methods (so that the name explains what the method does) and we have tried to simplify our conditional expressions that were used in our methods.
+
+### Code Smells
+
+**Bloaters - Large class**
+
+The class Arena represents the entire map and it has a lot of private objects in order to create the list of lists (each list represents a line of the map). However it is a very large class and we could have organized these objects better in order to make a simpler and less complicated class. Besides that, we have a huge method ("createLines()") in the class "LoaderArenaBuilder" which it could have been simpler if we've had created 2 or 3 new methods to check if that specific line was a line where there were cars on the road or a line where there were logs in the river, etc.
+
+**Object-Orientation Abusers**
+
+In some parts of our code we have some complex if operators and these could have been easily replaced by simpler expressions specially in the controller classes, the FrogController class for example. In this class, we could have simplified our if operators by creating some temporary fields in order to simplify this expressions (making these more readable). 
+
+**Some Problems in the Tests**
+
+We had some issues testing the change of states and we have a little mistake in the class MenuTest which we didn't understand why it was giving us a failed test.
