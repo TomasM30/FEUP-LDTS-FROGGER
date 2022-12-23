@@ -55,6 +55,8 @@ In our game, we have several objects that that may or not move across the screen
 
 We have applied the Model-View-Controller (MVC) pattern to address this problem. This pattern separates the application's data model, user interface, and control logic into separate classes, allowing for a clear separation of concerns and improved maintainability.
 
+This can be found on all Model, viewers, controllers elements.
+
 - The model represents the data and the business logic of the application. It holds the state of the application and defines the rules for manipulating and updating that state
 - The view represents the presentation layer of the application. It displays the data from the model to the user and allows the user to interact with the application
 - The controller represents the link between the model and the view. It receives input from the user and updates the model accordingly, and it also updates the view to reflect the changes in the model
@@ -72,6 +74,8 @@ It is necessary to have a mechanism that allows us to continuously update the ga
 
 We have applied the Game Loop pattern. This pattern allows us to continuously update the game state and render the game visuals based on that state. It also allows us to handle user input and transition between different game states.
 
+This can be found in the Game class
+
 **Consequences:**
 - The game loop provides a consistent and organized way to update and render the game state
 - The game loop allows for easy transition between different game states
@@ -87,12 +91,14 @@ We need to implement various behaviors for different game elements, such as the 
 
 In our game, we have implemented the Strategy pattern to allow for flexible and dynamic behavior of game elements. This pattern allows us to define multiple ways for an element to perform a task and easily switch between them during runtime. For example, we can define different strategies for the frog to move and interact with other elements in the arena, and choose the appropriate one based on the current game situation. This helps us to easily customize the behavior of elements and make the game more dynamic and engaging for the player.
 
+The strategy pattern can be found whenever we define an element controller
+
 **Consequences:**
 
 - The Strategy pattern enables us to dynamically alter the behavior of game elements during execution
 - Makes the code more modular and easier to understand, and follows the open-closed principle by allowing for new behaviors without modifying existing code
 -------------------------------------------------------------------------------------------
-#### DIFFERENT OBJ
+#### ELEMENT VIEWERS AND CONTROLLERS CREATION
 
 **Problem in Context**
 
@@ -102,12 +108,15 @@ There is a need to create element viewers and controllers in a flexible way, as 
 
 The Factory Method helps us create things called element viewers and controllers in a way that is easy to change and use for many different types of elements. It does this by hiding the details of how the viewers and controllers are made and making it easy to add new types. This makes the code easier to understand and easier to change if we need to.
 
+This design can be found in the following files: “GameState”, “GameOverState”, “GameWonState”, “MenuState”, “State”.
+
 **Consequences:**
 
 - The factory method lets us make viewers and controllers in a way that can be changed and expanded easily
 - We can add new types of elements by making new viewer and controller classes and adding them to the factory method
 - Makes the code cleaner and easier to fix if there are problems
 -------------------------------------------------------------------------------------------
+
 
 
 ### TESTING
