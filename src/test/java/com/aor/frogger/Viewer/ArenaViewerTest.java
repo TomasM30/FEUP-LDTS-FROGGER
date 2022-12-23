@@ -32,7 +32,6 @@ class ArenaViewerTest {
         arena.setRivers(Arrays.asList(new River(6,4), new River(5,2), new River(1,1)));
         arena.setLilyPads(Arrays.asList(new LilyPad(7,4), new LilyPad(1,4), new LilyPad(2,3)));
     }
-
     @Test
     void drawDirts() throws IOException{
         viewer.draw(gui);

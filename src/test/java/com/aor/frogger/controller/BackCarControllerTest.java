@@ -44,7 +44,7 @@ public class BackCarControllerTest {
     }
 
     @Test
-    void moveMonsters() throws IOException {
+    void moveBackCars() throws IOException {
         BackCar backCar = new BackCar(5, 5);
         arena.setBackCar(Arrays.asList(backCar));
 

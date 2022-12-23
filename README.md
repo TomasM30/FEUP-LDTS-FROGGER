@@ -33,7 +33,7 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 
 The game needs to display different screens and allow for user input based on the current state of the game, such as the game over screen, the game screen, the game won screen, or the menu screen. Currently, there is a lot of scattered conditional logic to determine which screen to display and how to handle user input based on the current state. This makes the code difficult to understand and maintain.
 
-**The Pattern**
+**Patterns**
 
 We have applied the **State** pattern. This pattern allows us to define a common interface for all states, with concrete implementations for each specific state.
 We created an abstract State class with abstract methods for getting the viewer and controller for the current state. We then created concrete State subclasses for each of the different screens, such as the GameOverState, the GameState, the GameWonState, and the MenuState. These subclasses override the abstract methods to return the appropriate viewer and controller for their specific state.

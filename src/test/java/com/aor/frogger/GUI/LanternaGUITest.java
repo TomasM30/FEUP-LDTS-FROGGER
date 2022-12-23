@@ -26,11 +26,25 @@ class LanternaGUITest {
 
 
     @Test
-    void drawFrog() {
+    void drawElements() {
         gui.drawFrog(new Position(5, 10));
+        gui.drawCar(new Position(3,8));
+        gui.drawDirt(new Position(2,6));
+        gui.drawLog(new Position(7,4));
+        gui.drawRiver(new Position(3, 9));
+        gui.drawBackCar(new Position(2,8));
+        gui.drawLilyPad(new Position(1,7));
+        gui.drawRoad(new Position(8,9));
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 215, 0));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "H");
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0,255,0));
+        Mockito.verify(tg, Mockito.times(1)).putString(5, 11, "H");
+        Mockito.verify(tg, Mockito.times(1)).putString(3, 9, "C");
+        Mockito.verify(tg, Mockito.times(1)).putString(2, 7, "%");
+        Mockito.verify(tg, Mockito.times(1)).putString(7,5 , "&");
+        Mockito.verify(tg, Mockito.times(1)).putString(3, 10, "-");
+        Mockito.verify(tg, Mockito.times(1)).putString(2, 9, "A");
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 8, "@");
+        Mockito.verify(tg, Mockito.times(1)).putString(8, 10, "#");
     }
 
     @Test
