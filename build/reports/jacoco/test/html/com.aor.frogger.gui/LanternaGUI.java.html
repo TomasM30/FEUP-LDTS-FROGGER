@@ -132,7 +132,7 @@ public class LanternaGUI implements GUI {
     public void drawText(Position position, String text, String color) {
 <span class="fc" id="L133">        TextGraphics tg = screen.newTextGraphics();</span>
 <span class="fc" id="L134">        tg.setForegroundColor(TextColor.Factory.fromString(color));</span>
-<span class="fc" id="L135">        tg.putString(position.getX1(), position.getY1(), text);  // usar apenas o x1 e y1</span>
+<span class="fc" id="L135">        tg.putString(position.getX1(), position.getY1(), text);</span>
 <span class="fc" id="L136">    }</span>
 
     @Override

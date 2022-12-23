@@ -91,4 +91,8 @@ The Strategy pattern allows us to define multiple ways to perform a task and swi
 
 ### TESTING
 
-We have tried to implement some tests using Mockito but most of them are not passing (some of them are). After this delivery there will be more tests and we hope that all of them will pass.
+Vou colocar fotos aqui
+
+### Refactoring
+
+At the end we have noticed some things that we could eliminate, or simplify in order to make our code more readable and simpler. For example, we had a lot of objects that were doing nothing in some functions; classes and functions that were unnecessary and we have eliminated all the comments that we had in our code. Besides that, we have tried to organize our data (sometimes we have self encapsulated fields, for example), simplified some method calls by, for example, removing parameters that weren’t being used and renaming methods (so that the name explains what the method does) and we have tried to simplify our conditional expressions that were used in our methods.
