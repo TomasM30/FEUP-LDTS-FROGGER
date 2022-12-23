@@ -2,8 +2,8 @@ package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
+import com.aor.frogger.model.game.River;
 
 public class FrogController extends GameController {
     public FrogController(Arena arena) {
@@ -27,22 +27,22 @@ public class FrogController extends GameController {
     public void moveFrogUp() {if(getModel().getFrog().getPosition().getY1()>0)moveFrog(getModel().getFrog().getPosition().getUp());}
 
 
-    private void moveFrog(Position position) {
+    private void moveFrog(River.Position position) {
         getModel().getFrog().setPosition(position);
         if (getModel().isCar(position))
-            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 , getModel().getHeight()-1));
+            getModel().getFrog().setPosition(new River.Position(getModel().getWidth() / 2 , getModel().getHeight()-1));
         if(position.getX1() ==-1){
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()-1,position.getY1()));
+            getModel().getFrog().setPosition(new River.Position(getModel().getWidth()-1,position.getY1()));
         }
         if (position.getX1() == getModel().getWidth()){
-            getModel().getFrog().setPosition(new Position(0,position.getY1()));
+            getModel().getFrog().setPosition(new River.Position(0,position.getY1()));
         }
         if(getModel().isCar(position) || getModel().isBackCar(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()-1 ));
+            getModel().getFrog().setPosition(new River.Position(getModel().getWidth()/2,getModel().getHeight()-1 ));
             getModel().getFrog().decreaseLives();
         }
         if (getModel().isRiver(position) && !(getModel().isLog(position)) && !(getModel().isLilyPad(position))) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2, getModel().getHeight()-1));
+            getModel().getFrog().setPosition(new River.Position(getModel().getWidth() / 2, getModel().getHeight()-1));
             getModel().getFrog().decreaseLives();
         }
     }

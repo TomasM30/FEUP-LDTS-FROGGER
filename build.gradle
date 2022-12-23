@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'info.solidsoft.pitest' version '1.9.0'
 }
 
 group 'org.example'
@@ -17,7 +18,49 @@ dependencies {
 
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
 }
+pitest {
+    junit5PluginVersion = '1.0.0'
+}
 
 test {
     useJUnitPlatform()
 }
+/*
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'info.solidsoft.pitest' version '1.9.11'
+    id 'application'
+    id "net.ltgt.errorprone" version "2.0.2"
+}
+
+group 'org.ldts.pacman'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass.set("org.ldts.pacman.Game")
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
+    errorprone("com.google.errorprone:error_prone_core:2.10.0")
+}
+
+pitest {
+    targetClasses = ['org.ldts.pacman.*']
+    junit5PluginVersion = '1.0.0'
+}
+
+test {
+    useJUnitPlatform()
+    maxHeapSize = "4096m"
+}
+*/

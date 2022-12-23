@@ -5,8 +5,8 @@ import com.aor.frogger.controller.game.BackCarController;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.game.BackCar;
 import com.aor.frogger.model.game.Frog;
-import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
+import com.aor.frogger.model.game.River;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -53,6 +53,6 @@ public class BackCarControllerTest {
             time += 500;
             controller.step(game, GUI.ACTION.NONE, time);
         }
-        assertNotEquals(new Position(5, 5), backCar.getPosition());
+        assertNotEquals(new River.Position(5, 5), backCar.getPosition());
     }
 }

@@ -12,7 +12,7 @@ import com.aor.frogger.states.MenuState;
 
 import java.io.IOException;
 
-public class ArenaControll extends GameController {
+public class ArenaController extends GameController {
     private final FrogController frogController;
     private final CarController carController;
     private final BackCarController backcarController;
@@ -20,7 +20,7 @@ public class ArenaControll extends GameController {
     private final LilyPadController leafController;
 
 
-    public ArenaControll(Arena arena) {
+    public ArenaController(Arena arena) {
         super(arena);
 
         this.frogController = new FrogController(arena);

@@ -3,8 +3,8 @@ package com.aor.frogger.controller.game;
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.game.Car;
-import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
+import com.aor.frogger.model.game.River;
 
 import java.io.IOException;
 
@@ -21,12 +21,12 @@ public class CarController extends GameController{
             this.lastMovement = time;
         }
     }
-    private void moveCar(Car car, Position position) {
+    private void moveCar(Car car, River.Position position) {
         car.setPosition(position);
         if(position.getX1() == -1)
-            car.setPosition(new Position(getModel().getWidth(),position.getY1()));
+            car.setPosition(new River.Position(getModel().getWidth(),position.getY1()));
         if (getModel().getFrog().getPosition().equals(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
+            getModel().getFrog().setPosition(new River.Position(getModel().getWidth() / 2 - 1, 6));
             getModel().getFrog().decreaseLives();
         }
     }

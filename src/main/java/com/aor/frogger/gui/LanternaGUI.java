@@ -1,6 +1,6 @@
 package com.aor.frogger.gui;
 
-import com.aor.frogger.model.Position;
+import com.aor.frogger.model.game.River;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -108,26 +108,26 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawFrog(Position position) {drawBg(position.getX1(), position.getY1(), 'H', "#00FF00");}
+    public void drawFrog(River.Position position) {drawBg(position.getX1(), position.getY1(), 'H', "#00FF00");}
 
     @Override
-    public void drawLog(Position position) {drawCharacter(position.getX1(), position.getY1(), '&', "#815438","#7FB3D5"); }
+    public void drawLog(River.Position position) {drawCharacter(position.getX1(), position.getY1(), '&', "#815438","#7FB3D5"); }
 
     @Override
-    public void drawLilyPad(Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#83BB61","#7FB3D5"); }
+    public void drawLilyPad(River.Position position) {drawCharacter(position.getX1(), position.getY1(), '@', "#83BB61","#7FB3D5"); }
 
     @Override
-    public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#FFFF00","#808080"); }
+    public void drawCar(River.Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#FFFF00","#808080"); }
     @Override
-    public void drawBackCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'A', "#FF0000","#808080"); }
-    public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#013F94","#7FB3D5"); }
-    public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#FFFFFF", "#808080"); }
+    public void drawBackCar(River.Position position) {drawCharacter(position.getX1(), position.getY1(), 'A', "#FF0000","#808080"); }
+    public void drawRiver(River.Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#013F94","#7FB3D5"); }
+    public void drawRoad(River.Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#FFFFFF", "#808080"); }
 
     @Override
-    public void drawDirt(Position position) {drawCharacter(position.getX1(), position.getY1(), '%', "#808080", "#6F4E37");}
+    public void drawDirt(River.Position position) {drawCharacter(position.getX1(), position.getY1(), '%', "#808080", "#6F4E37");}
 
     @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawText(River.Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX1(), position.getY1(), text);  // usar apenas o x1 e y1

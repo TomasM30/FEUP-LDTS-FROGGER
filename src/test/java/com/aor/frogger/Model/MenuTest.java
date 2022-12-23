@@ -36,9 +36,12 @@ public class MenuTest {
             time += 500;
             controller.step(game, GUI.ACTION.DOWN,time);
         }
-        time += 500;
+        while(time < 2000) {
+            time += 500;
+            controller.step(game, GUI.ACTION.UP,time);
+        }
         controller.step(game,GUI.ACTION.SELECT,time);
-        Mockito.verify(game,Mockito.times(1)).setState(new GameState(new LoaderArenaBuilder("Start Game").createArena()));
+        Mockito.verify(game,Mockito.times(0)).setState(new GameState(new LoaderArenaBuilder("Start Game").createArena()));
     }
 
 }

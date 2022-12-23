@@ -1,7 +1,7 @@
 package com.aor.frogger.GUI;
 
 import com.aor.frogger.gui.LanternaGUI;
-import com.aor.frogger.model.Position;
+import com.aor.frogger.model.game.River;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -27,14 +27,14 @@ class LanternaGUITest {
 
     @Test
     void drawElements() {
-        gui.drawFrog(new Position(5, 10));
-        gui.drawCar(new Position(3,8));
-        gui.drawDirt(new Position(2,6));
-        gui.drawLog(new Position(7,4));
-        gui.drawRiver(new Position(3, 9));
-        gui.drawBackCar(new Position(2,8));
-        gui.drawLilyPad(new Position(1,7));
-        gui.drawRoad(new Position(8,9));
+        gui.drawFrog(new River.Position(5, 10));
+        gui.drawCar(new River.Position(3,8));
+        gui.drawDirt(new River.Position(2,6));
+        gui.drawLog(new River.Position(7,4));
+        gui.drawRiver(new River.Position(3, 9));
+        gui.drawBackCar(new River.Position(2,8));
+        gui.drawLilyPad(new River.Position(1,7));
+        gui.drawRoad(new River.Position(8,9));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0,255,0));
         Mockito.verify(tg, Mockito.times(1)).putString(5, 11, "H");
@@ -49,7 +49,7 @@ class LanternaGUITest {
 
     @Test
     void drawText() {
-        gui.drawText(new Position(1, 1), "Hello World", "#336699");
+        gui.drawText(new River.Position(1, 1), "Hello World", "#336699");
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(51, 102, 153));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Hello World");
