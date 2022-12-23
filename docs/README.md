@@ -123,19 +123,18 @@ This design can be found in the following files: “GameState”, “GameOverSta
 -------------------------------------------------------------------------------------------
 ### UML (It shows the Patterns)
 
-
-![](../../../Pictures/Screenshot%20from%202022-12-23%2016-29-10.png)
+![](Screenshot from 2022-12-23 16-29-10.png)
 
 -------------------------------------------------------------------------------------------
 ### TESTING
 
 **Intellij Coverage**
 
-![](../../../Pictures/Screenshot%20from%202022-12-23%2022-09-42.png)
+![](Screenshot from 2022-12-23 22-09-42.png)
 
 **Mutation Testing Report**
 
-![](../../../Pictures/Screenshot%20from%202022-12-23%2022-10-22.png)
+![](Screenshot from 2022-12-23 22-10-22.png)
 
 We tried to implement a lot of tests using mockito and we used once the PBT.
 
