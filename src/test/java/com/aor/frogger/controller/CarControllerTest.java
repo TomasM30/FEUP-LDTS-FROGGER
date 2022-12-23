@@ -4,10 +4,10 @@ import com.aor.frogger.Game;
 import com.aor.frogger.controller.game.CarController;
 import com.aor.frogger.controller.game.FrogController;
 import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 import com.aor.frogger.model.game.Car;
 import com.aor.frogger.model.game.Frog;
-import com.aor.frogger.model.game.River;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -56,9 +56,9 @@ public class CarControllerTest {
             controller.step(game, GUI.ACTION.NONE,time);
             controller2.step(game,GUI.ACTION.UP,time);
         }
-        assertNotEquals(new River.Position(4,5),car1.getPosition());
-        assertNotEquals(new River.Position(3,6),car2.getPosition());
-        assertEquals(new River.Position(5,10),frog.getPosition());
+        assertNotEquals(new Position(4,5),car1.getPosition());
+        assertNotEquals(new Position(3,6),car2.getPosition());
+        assertEquals(new Position(5,10),frog.getPosition());
         //Mockito.verify(game, Mockito.times(1)).setState(new GameOverState(new GameOver()));
     }
 }

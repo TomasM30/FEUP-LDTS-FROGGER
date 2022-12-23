@@ -3,10 +3,10 @@ package com.aor.frogger.controller;
 import com.aor.frogger.Game;
 import com.aor.frogger.controller.game.LogController;
 import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
 import com.aor.frogger.model.game.Frog;
 import com.aor.frogger.model.game.Log;
-import com.aor.frogger.model.game.River;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -50,7 +50,7 @@ public class LogControllerTest {
             time += 500;
             controller.step(game, GUI.ACTION.NONE, time);
         }
-        assertNotEquals(new River.Position(6,2), log.getPosition());
+        assertNotEquals(new Position(6,2), log.getPosition());
     }
     @Test
     void moveLogFrog() throws IOException {
@@ -62,7 +62,7 @@ public class LogControllerTest {
             time += 500;
             controller.step(game, GUI.ACTION.NONE, time);
         }
-        assertNotEquals(new River.Position(6, 3), log.getPosition());
+        assertNotEquals(new Position(6, 3), log.getPosition());
         assertEquals(frog.getPosition(),log.getPosition());
         assertEquals(frog.getLives(),10);
     }

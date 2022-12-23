@@ -3,10 +3,10 @@ package com.aor.frogger.controller;
 import com.aor.frogger.Game;
 import com.aor.frogger.controller.game.LilyPadController;
 import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.Position;
+import com.aor.frogger.model.arena.Arena;
 import com.aor.frogger.model.game.Frog;
 import com.aor.frogger.model.game.LilyPad;
-import com.aor.frogger.model.arena.Arena;
-import com.aor.frogger.model.game.River;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -51,7 +51,7 @@ public class LilyPadControllerTest {
             time += 500;
             controller.step(game, GUI.ACTION.NONE, time);
         }
-        assertNotEquals(new River.Position(5, 3), lilyPad.getPosition());
+        assertNotEquals(new Position(5, 3), lilyPad.getPosition());
         assertEquals(frog.getPosition(),lilyPad.getPosition());
         assertEquals(frog.getLives(),10);
     }
@@ -66,6 +66,6 @@ public class LilyPadControllerTest {
             time += 500;
             controller.step(game, GUI.ACTION.NONE, time);
         }
-        assertNotEquals(new River.Position(6, 2), lilyPad.getPosition());
+        assertNotEquals(new Position(6, 2), lilyPad.getPosition());
     }
 }

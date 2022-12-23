@@ -1,9 +1,9 @@
 package com.aor.frogger.controller;
 
 import com.aor.frogger.controller.game.FrogController;
-import com.aor.frogger.model.game.Frog;
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
-import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.Frog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,24 +39,24 @@ public class FrogControllerTest {
     @Test
     void moveFrogLeft() {
         controller.moveFrogLeft();
-        assertEquals(new River.Position(4,10), frog.getPosition());
+        assertEquals(new Position(4,10), frog.getPosition());
     }
 
     @Test
     void moveFrogUp() {
         controller.moveFrogUp();
-        assertEquals(new River.Position(5,9),frog.getPosition());
+        assertEquals(new Position(5,9),frog.getPosition());
     }
 
     @Test
     void moveFrogDown() {
         controller.moveFrogDown();
-        assertEquals(new River.Position(5,10), frog.getPosition());
+        assertEquals(new Position(5,10), frog.getPosition());
     }
 
     @Test
     void moveFrogRight() {
         controller.moveFrogRight();
-        assertEquals(new River.Position(6,10), frog.getPosition());
+        assertEquals(new Position(6,10), frog.getPosition());
     }
 }
