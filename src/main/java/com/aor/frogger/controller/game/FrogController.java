@@ -4,7 +4,6 @@ import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
 import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
-import com.aor.frogger.model.game.River;
 
 public class FrogController extends GameController {
     public FrogController(Arena arena) {
@@ -42,7 +41,7 @@ public class FrogController extends GameController {
             getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()-1 ));
             getModel().getFrog().decreaseLives();
         }
-        if (getModel().isRiver(position) && !(getModel().isLog(position)) && !(getModel().isLilyPad(position))) {
+        if (getModel().isRiver(position) && !getModel().isLog(position) && !getModel().isLilyPad(position)) {
             getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2, getModel().getHeight()-1));
             getModel().getFrog().decreaseLives();
         }

@@ -45,10 +45,6 @@ class ArenaViewerTest {
     @Test
     void drawRoads() throws IOException{
         viewer.draw(gui);
-
-        Mockito.verify(gui, Mockito.times(1)).drawRoad(new Position(2, 9));
-        Mockito.verify(gui, Mockito.times(1)).drawRoad(new Position(1, 8));
-        Mockito.verify(gui, Mockito.times(1)).drawRoad(new Position(9, 7));
         Mockito.verify(gui, Mockito.times(3)).drawRoad(Mockito.any(Position.class));
     }
     @Test

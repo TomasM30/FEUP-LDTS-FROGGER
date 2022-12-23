@@ -16,11 +16,6 @@ import java.util.Arrays;
 
 public class ArenaControllerTest {
     private Arena arena;
-    private FrogController controllerf;
-    private CarController controllerc;
-    private BackCarController controllerbc;
-    private LogController controllerl;
-    private LilyPadController controllerlp;
     private ArenaController controllerA;
     private Game game;
 
@@ -28,11 +23,6 @@ public class ArenaControllerTest {
     void setup() {
         arena = new Arena(11,11);
         controllerA = new ArenaController(arena);
-        controllerf = new FrogController(arena);
-        controllerc = new CarController(arena);
-        controllerbc = new BackCarController(arena);
-        controllerl = new LogController(arena);
-        controllerlp = new LilyPadController(arena);
         arena.setLogs(Arrays.asList(new Log(2,1), new Log(6,2), new Log(4,2)));
         arena.setCars(Arrays.asList(new Car(4,9), new Car(7,8), new Car(2,7)));
         arena.setDirts(Arrays.asList(new Dirt(2,0), new Dirt(6,5), new Dirt(4,10)));

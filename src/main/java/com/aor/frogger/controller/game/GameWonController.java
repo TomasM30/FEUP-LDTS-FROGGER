@@ -23,6 +23,8 @@ public class GameWonController extends Controller<GameWon> {
             case SELECT:
                 if(getModel().isSelectedExit()) game.setState(null);
                 if(getModel().isSelectedPlayAgain()) game.setState(new GameState(new LoaderArenaBuilder("Start Game").createArena()));
+            default:
+                break;
         }
     }
 }

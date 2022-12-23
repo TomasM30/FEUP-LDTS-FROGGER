@@ -46,7 +46,6 @@ public class CarControllerTest {
 
     @Test
     void moveCars() throws IOException{
-        //game.setState(new GameState(arena));
         Car car1 = new Car( 4,5);
         Car car2 = new Car (9,6);
         arena.setCars(Arrays.asList(car1,car2));
@@ -59,6 +58,5 @@ public class CarControllerTest {
         assertNotEquals(new Position(4,5),car1.getPosition());
         assertNotEquals(new Position(3,6),car2.getPosition());
         assertEquals(new Position(5,10),frog.getPosition());
-        //Mockito.verify(game, Mockito.times(1)).setState(new GameOverState(new GameOver()));
     }
 }

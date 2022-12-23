@@ -29,7 +29,7 @@ public class ArenaController extends GameController {
         this.logController = new LogController(arena);
         this.leafController = new LilyPadController(arena);
     }
-
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT){
             game.setState(new MenuState(new Menu()));

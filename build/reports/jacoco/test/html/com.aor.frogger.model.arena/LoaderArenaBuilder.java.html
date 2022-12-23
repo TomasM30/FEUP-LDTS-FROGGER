@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoaderArenaBuilder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FROGGER</a> &gt; <a href="index.source.html" class="el_package">com.aor.frogger.model.arena</a> &gt; <span class="el_source">LoaderArenaBuilder.java</span></div><h1>LoaderArenaBuilder.java</h1><pre class="source lang-java linenums">package com.aor.frogger.model.arena;
+
+import com.aor.frogger.model.game.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+public class LoaderArenaBuilder extends ArenaBuilder {
+    private final String level;
+    private final List&lt;String&gt; lines;
+
+<span class="fc" id="L16">    public LoaderArenaBuilder(String level) throws IOException {</span>
+<span class="fc" id="L17">        this.level = level;</span>
+
+<span class="fc" id="L19">        URL resource = LoaderArenaBuilder.class.getResource(&quot;/levels/level.lvl&quot;);</span>
+<span class="fc" id="L20">        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));</span>
+
+<span class="fc" id="L22">        lines = readLines(br);</span>
+<span class="fc" id="L23">    }</span>
+
+    private List&lt;String&gt; readLines(BufferedReader br) throws IOException {
+<span class="fc" id="L26">        List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (String line; (line = br.readLine()) != null; )</span>
+<span class="fc" id="L28">            lines.add(line);</span>
+<span class="fc" id="L29">        return lines;</span>
+    }
+
+    @Override
+    protected List&lt;Car&gt; createCars() {
+<span class="fc" id="L34">        List&lt;Car&gt; cars = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        for(int j = 0;j&lt;lines.size() ; j++) {</span>
+<span class="fc" id="L36">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">                if(line.charAt(i) == 'C') cars.add(new Car(i,j));</span>
+            }
+        }
+<span class="fc" id="L41">        return cars;</span>
+    }
+    @Override
+    protected List&lt;BackCar&gt; createBackCars() {
+<span class="fc" id="L45">        List&lt;BackCar&gt; backcars = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (int j = 0; j &lt; lines.size(); j++) {</span>
+<span class="fc" id="L47">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            for (int i = 0; i &lt; line.length(); i++) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">                if (line.charAt(i) == 'A') backcars.add(new BackCar(i, j));</span>
+            }
+        }
+<span class="fc" id="L52">        return backcars;</span>
+    }
+
+
+    @Override
+    protected Frog createFrog() {
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        for (int j = 0; j &lt; lines.size(); j++) {</span>
+<span class="fc" id="L59">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            for (int i = 0; i &lt; line.length(); i++) {</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">                if (line.charAt(i) == 'H') return new Frog(i, j, 3);</span>
+            }
+        }
+<span class="nc" id="L64">        return null;</span>
+    }
+
+    @Override
+    protected List&lt;Log&gt; createLogs() {
+<span class="fc" id="L69">        List&lt;Log&gt; logs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for(int j = 0; j&lt;lines.size(); j++) {</span>
+<span class="fc" id="L71">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if(line.charAt(i)=='&amp;') logs.add(new Log(i,j));</span>
+            }
+        }
+<span class="fc" id="L76">        return logs;</span>
+    }
+    @Override
+    protected List&lt;LilyPad&gt; createLilyPads() {
+<span class="fc" id="L80">        List&lt;LilyPad&gt; lilypads = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        for(int j = 0; j&lt;lines.size(); j++) {</span>
+<span class="fc" id="L82">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">                if(line.charAt(i)=='@') lilypads.add(new LilyPad(i,j));</span>
+            }
+        }
+<span class="fc" id="L87">        return lilypads;</span>
+    }
+
+
+    @Override
+    protected List&lt;Road&gt; createRoads() {
+<span class="fc" id="L93">        List&lt;Road&gt; roads = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for(int j = 0; j&lt;lines.size(); j++) {</span>
+<span class="fc" id="L95">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L97" title="All 10 branches covered.">                if(line.charAt(i)!= '-' &amp;&amp; line.charAt(i) != '%' &amp;&amp; line.charAt(i) != 'H' &amp;&amp; line.charAt(i) != '@' &amp;&amp; line.charAt(i) != '&amp;') roads.add(new Road(i,j));</span>
+            }
+        }
+<span class="fc" id="L100">        return roads;</span>
+    }
+    @Override
+    protected List&lt;Dirt&gt; createDirt() {
+<span class="fc" id="L104">        List&lt;Dirt&gt; dirts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        for(int j = 0; j&lt;lines.size(); j++) {</span>
+<span class="fc" id="L106">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L108" title="All 12 branches covered.">                if(line.charAt(i)!= '-' &amp;&amp; line.charAt(i) != '#' &amp;&amp; line.charAt(i) != 'C' &amp;&amp; line.charAt(i) != 'A' &amp;&amp; line.charAt(i) != '@' &amp;&amp; line.charAt(i) != '&amp;') dirts.add(new Dirt(i,j));</span>
+            }
+        }
+<span class="fc" id="L111">        return dirts;</span>
+    }
+
+    @Override
+    protected List&lt;River&gt; createRivers() {
+<span class="fc" id="L116">        List&lt;River&gt; rivers = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        for(int j = 0; j&lt;lines.size(); j++) {</span>
+<span class="fc" id="L118">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">            for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L120" title="All 10 branches covered.">                if(line.charAt(i)!='#' &amp;&amp; line.charAt(i) != '%' &amp;&amp; line.charAt(i) != 'H' &amp;&amp; line.charAt(i) != 'A'&amp;&amp; line.charAt(i) != 'C') rivers.add(new River(i,j));</span>
+            }
+        }
+<span class="fc" id="L123">        return rivers;</span>
+    }
+
+    @Override
+    protected int getWidth() {
+<span class="fc" id="L128">        int width = 0;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        for (String line : lines)</span>
+<span class="fc" id="L130">            width = Math.max(width, line.length());</span>
+<span class="fc" id="L131">        return width;</span>
+    }
+
+    @Override
+    protected int getHeight() {
+<span class="fc" id="L136">        return lines.size();</span>
+    }
+
+    @Override
+<span class="nc" id="L140">    protected List&lt;List&lt;Object&gt;&gt; getLines() {return null;}</span>
+
+    @Override
+    protected List&lt;List&lt;Object&gt;&gt; createLines(){
+<span class="fc" id="L144">        List&lt;List&lt;Object&gt;&gt; linhas = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        for(int i = 0; i&lt;lines.size();i++){</span>
+<span class="fc" id="L146">            linhas.add(new ArrayList&lt;&gt;());</span>
+        }
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        for(int j = lines.size()-1; j&gt;=0; j--) {</span>
+<span class="fc" id="L149">            String line = lines.get(j);</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">            if (j == lines.size()-1) {</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">                for (int i = 0; i &lt; line.length(); i++) {</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">                    if(line.charAt(i) == 'H') linhas.get(j).add(new Frog(i,j,3));</span>
+<span class="fc" id="L153">                    else linhas.get(j).add(new Dirt(i,j));</span>
+                }
+<span class="fc" id="L155">                continue;</span>
+            }
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            if(j == lines.size()/2) {</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">                for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc" id="L159">                    linhas.get(j).add(new Dirt(i,j));</span>
+                }
+<span class="fc" id="L161">                continue;</span>
+            }
+<span class="fc bfc" id="L163" title="All 2 branches covered.">            if(j == 0) {</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">                for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc" id="L165">                    linhas.get(j).add(new Dirt(i, j));</span>
+                }
+<span class="fc" id="L167">                continue;</span>
+            }
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            if(j&gt;lines.size()/2) {</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">                for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">                    if(line.charAt(i) == 'C') linhas.get(j).add(new Car(i,j));</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">                    else if (line.charAt(i) == 'A') linhas.get(j).add(new BackCar(i,j));</span>
+<span class="fc" id="L173">                    else linhas.get(j).add(new Road(i,j));</span>
+                }
+<span class="fc" id="L175">                continue;</span>
+            }
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">            if(j&lt;lines.size()/2) {</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">                for(int i = 0; i&lt;line.length(); i++) {</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">                    if(line.charAt(i) == '&amp;'){</span>
+<span class="fc" id="L180">                        linhas.get(j).add(new Log(i,j));</span>
+                    }
+<span class="fc bfc" id="L182" title="All 2 branches covered.">                    else if(line.charAt(i) == '@') {</span>
+<span class="fc" id="L183">                        linhas.get(j).add(new LilyPad(i,j));</span>
+
+                    }
+<span class="fc" id="L186">                    else linhas.get(j).add(new River(i,j));</span>
+                }
+            }
+        }
+<span class="fc" id="L190">        return linhas;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,13 @@
+Qtimestamp = 2022-12-23T20:45:00.977336760, ArenaClosedTest:allArenasAreClosed = 
+K                              |-------------------jqwik-------------------
+7tries = 1000                  | # of calls to property
+8checks = 1000                 | # of not rejected calls
+Bgeneration = RANDOMIZED       | parameters are randomly generated
+6after-failure = PREVIOUS_SEED | use the previous seed
+Bwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+8edge-cases#mode = MIXIN       | edge cases are mixed in
+=edge-cases#total = 48         | # of all combined edge cases
+Eedge-cases#tried = 34         | # of edge cases tried in current run
+Jseed = 2332537509086731108    | random seed to reproduce generated values
+
+

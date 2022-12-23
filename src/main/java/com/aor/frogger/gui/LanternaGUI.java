@@ -62,7 +62,7 @@ public class LanternaGUI implements GUI {
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
-
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -120,7 +120,9 @@ public class LanternaGUI implements GUI {
     public void drawCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'C', "#FFFF00","#808080"); }
     @Override
     public void drawBackCar(Position position) {drawCharacter(position.getX1(), position.getY1(), 'A', "#FF0000","#808080"); }
+    @Override
     public void drawRiver(Position position) {drawCharacter(position.getX1(), position.getY1(), '-', "#013F94","#7FB3D5"); }
+    @Override
     public void drawRoad(Position position) {drawCharacter(position.getX1(), position.getY1(), '#', "#FFFFFF", "#808080"); }
 
     @Override
