@@ -1,11 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
-import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
-import com.aor.frogger.model.game.River;
-import com.aor.frogger.model.game.Road;
+import com.aor.frogger.model.game.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +16,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     public LoaderArenaBuilder(String level) throws IOException {
         this.level = level;
 
-        URL resource = LoaderArenaBuilder.class.getResource("/levels/hard.lvl"); // mudar isto
+        URL resource = LoaderArenaBuilder.class.getResource("/levels/level.lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -45,6 +40,18 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return cars;
     }
+    @Override
+    protected List<BackCar> createBackCars() {
+        List<BackCar> backcars = new ArrayList<>();
+        for (int j = 0; j < lines.size(); j++) {
+            String line = lines.get(j);
+            for (int i = 0; i < line.length(); i++) {
+                if (line.charAt(i) == 'A') backcars.add(new BackCar(i, j));
+            }
+        }
+        return backcars;
+    }
+
 
     @Override
     protected Frog createFrog() {
@@ -63,23 +70,23 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='L') logs.add(new Log(i,j));
+                if(line.charAt(i)=='&') logs.add(new Log(i,j));
             }
         }
         return logs;
     }
-
     @Override
-    protected List<Leaf> createLeaves() {
-        List<Leaf> leaves = new ArrayList<>();
+    protected List<LilyPad> createLilyPads() {
+        List<LilyPad> lilypads = new ArrayList<>();
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='@') leaves.add(new Leaf(i,j));
+                if(line.charAt(i)=='@') lilypads.add(new LilyPad(i,j));
             }
         }
-        return leaves;
+        return lilypads;
     }
+
 
     @Override
     protected List<Road> createRoads() {
@@ -87,10 +94,21 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='#') roads.add(new Road(i,j));
+                if(line.charAt(i)!= '-' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != '@' && line.charAt(i) != '&') roads.add(new Road(i,j));
             }
         }
         return roads;
+    }
+    @Override
+    protected List<Dirt> createDirt() {
+        List<Dirt> dirts = new ArrayList<>();
+        for(int j = 0; j<lines.size(); j++) {
+            String line = lines.get(j);
+            for(int i = 0; i<line.length(); i++) {
+                if(line.charAt(i)!= '-' && line.charAt(i) != '#' && line.charAt(i) != 'C' && line.charAt(i) != 'A' && line.charAt(i) != '@' && line.charAt(i) != '&') dirts.add(new Dirt(i,j));
+            }
+        }
+        return dirts;
     }
 
     @Override
@@ -99,7 +117,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for(int j = 0; j<lines.size(); j++) {
             String line = lines.get(j);
             for(int i = 0; i<line.length(); i++) {
-                if(line.charAt(i)=='-') rivers.add(new River(i,j));
+                if(line.charAt(i)!='#' && line.charAt(i) != '%' && line.charAt(i) != 'H' && line.charAt(i) != 'A'&& line.charAt(i) != 'C') rivers.add(new River(i,j));
             }
         }
         return rivers;
@@ -132,44 +150,38 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             if (j == lines.size()-1) {
                 for (int i = 0; i < line.length(); i++) {
                     if(line.charAt(i) == 'H') linhas.get(j).add(new Frog(i,j,3));
-                    else linhas.get(j).add(new Road(i,j));
+                    else linhas.get(j).add(new Dirt(i,j));
                 }
                 continue;
             }
             if(j == lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
-                    linhas.get(j).add(new Road(i,j));
+                    linhas.get(j).add(new Dirt(i,j));
                 }
                 continue;
             }
             if(j == 0) {
                 for(int i = 0; i<line.length(); i++) {
-                    linhas.get(j).add(new Road(i, j));
+                    linhas.get(j).add(new Dirt(i, j));
                 }
                 continue;
             }
             if(j>lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
                     if(line.charAt(i) == 'C') linhas.get(j).add(new Car(i,j));
+                    else if (line.charAt(i) == 'A') linhas.get(j).add(new BackCar(i,j));
                     else linhas.get(j).add(new Road(i,j));
                 }
                 continue;
             }
             if(j<lines.size()/2) {
                 for(int i = 0; i<line.length(); i++) {
-                    if(line.charAt(i) == 'L'){
+                    if(line.charAt(i) == '&'){
                         linhas.get(j).add(new Log(i,j));
-                        for(int h = i; h<line.length();h++) {
-                            if(line.charAt(i) == 'L') linhas.get(j).add(new Log(i,j));
-                            else linhas.get(j).add(new River(i,j));
-                        }
                     }
                     else if(line.charAt(i) == '@') {
-                        linhas.get(j).add(new Leaf(i,j));
-                        for(int h = i; h<line.length();h++) {
-                            if(line.charAt(i) == '@') linhas.get(j).add(new Log(i,j));
-                            else linhas.get(j).add(new River(i,j));
-                        }
+                        linhas.get(j).add(new LilyPad(i,j));
+
                     }
                     else linhas.get(j).add(new River(i,j));
                 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArenaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FROGGER</a> &gt; <a href="index.source.html" class="el_package">com.aor.frogger.controller.game</a> &gt; <span class="el_source">ArenaController.java</span></div><h1>ArenaController.java</h1><pre class="source lang-java linenums">package com.aor.frogger.controller.game;
+
+import com.aor.frogger.Game;
+import com.aor.frogger.gui.GUI;
+import com.aor.frogger.model.game.GameOver;
+import com.aor.frogger.model.game.GameWon;
+import com.aor.frogger.model.game.Menu;
+import com.aor.frogger.model.arena.Arena;
+import com.aor.frogger.states.GameOverState;
+import com.aor.frogger.states.GameWonState;
+import com.aor.frogger.states.MenuState;
+
+import java.io.IOException;
+
+public class ArenaController extends GameController {
+    private final FrogController frogController;
+    private final CarController carController;
+    private final BackCarController backcarController;
+    private final LogController logController;
+    private final LilyPadController leafController;
+
+
+    public ArenaController(Arena arena) {
+<span class="fc" id="L24">        super(arena);</span>
+
+<span class="fc" id="L26">        this.frogController = new FrogController(arena);</span>
+<span class="fc" id="L27">        this.carController = new CarController(arena);</span>
+<span class="fc" id="L28">        this.backcarController = new BackCarController(arena);</span>
+<span class="fc" id="L29">        this.logController = new LogController(arena);</span>
+<span class="fc" id="L30">        this.leafController = new LilyPadController(arena);</span>
+<span class="fc" id="L31">    }</span>
+    @Override
+    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (action == GUI.ACTION.QUIT){</span>
+<span class="nc" id="L35">            game.setState(new MenuState(new Menu()));</span>
+        }
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if(getModel().getFrog().getLives() == 0){</span>
+<span class="fc" id="L38">            game.setState(new GameOverState(new GameOver()));</span>
+        }
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if(getModel().getFrog().getPosition().getY1() == 0) {</span>
+<span class="fc" id="L41">            game.setState(new GameWonState(new GameWon()));</span>
+        }
+        else {
+<span class="fc" id="L44">            frogController.step(game, action, time);</span>
+<span class="fc" id="L45">            carController.step(game, action, time);</span>
+<span class="fc" id="L46">            backcarController.step(game,action,time);</span>
+<span class="fc" id="L47">            logController.step(game,action,time);</span>
+<span class="fc" id="L48">            leafController.step(game,action,time);</span>
+        }
+<span class="fc" id="L50">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

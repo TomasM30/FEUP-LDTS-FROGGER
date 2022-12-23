@@ -1,7 +1,7 @@
 package com.aor.frogger.viewer;
 
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Car;
+import com.aor.frogger.model.game.Car;
 
 public class CarViewer implements ElementViewer<Car>{
     @Override

@@ -11,15 +11,17 @@ public interface GUI {
 
     void drawLog(Position position);
 
-    void drawLeaf(Position position);
+    void drawLilyPad(Position position);
 
     void drawCar(Position position);
+    void drawBackCar(Position position);
 
     void drawText(Position position, String text, String color);
 
     void drawRiver(Position position);
 
     void drawRoad(Position position);
+    void drawDirt(Position position);
 
     void clear();
 

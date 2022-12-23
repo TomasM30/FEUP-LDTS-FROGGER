@@ -18,22 +18,31 @@ public class FrogController extends GameController {
         if (action == GUI.ACTION.LEFT) moveFrogLeft();
     }
 
-    private void moveFrogLeft() {moveFrog(getModel().getFrog().getPosition().getLeft());}
+    public void moveFrogLeft() {moveFrog(getModel().getFrog().getPosition().getLeft());}
 
-    private void moveFrogDown() {moveFrog(getModel().getFrog().getPosition().getDown());}
+    public void moveFrogDown() {if(getModel().getFrog().getPosition().getY1()< getModel().getHeight()-1)moveFrog(getModel().getFrog().getPosition().getDown());}
 
-    private void moveFrogRight() {moveFrog(getModel().getFrog().getPosition().getRight());}
+    public void moveFrogRight() {moveFrog(getModel().getFrog().getPosition().getRight());}
 
-    private void moveFrogUp() {moveFrog(getModel().getFrog().getPosition().getUp());}
+    public void moveFrogUp() {if(getModel().getFrog().getPosition().getY1()>0)moveFrog(getModel().getFrog().getPosition().getUp());}
 
-    public void moveFrog(Position position) {
+
+    private void moveFrog(Position position) {
         getModel().getFrog().setPosition(position);
-        if(getModel().isCar(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
+        if (getModel().isCar(position))
+            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 , getModel().getHeight()-1));
+        if(position.getX1() ==-1){
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()-1,position.getY1()));
+        }
+        if (position.getX1() == getModel().getWidth()){
+            getModel().getFrog().setPosition(new Position(0,position.getY1()));
+        }
+        if(getModel().isCar(position) || getModel().isBackCar(position)) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()-1 ));
             getModel().getFrog().decreaseLives();
         }
-        else if(getModel().isRiver(position)) {
-            getModel().getFrog().setPosition(new Position(getModel().getWidth()/2,0 ));
+        if (getModel().isRiver(position) && !getModel().isLog(position) && !getModel().isLilyPad(position)) {
+            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2, getModel().getHeight()-1));
             getModel().getFrog().decreaseLives();
         }
     }

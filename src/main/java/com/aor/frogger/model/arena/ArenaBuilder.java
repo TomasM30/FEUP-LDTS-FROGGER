@@ -1,11 +1,6 @@
 package com.aor.frogger.model.arena;
 
-import com.aor.frogger.model.Car;
-import com.aor.frogger.model.Frog;
-import com.aor.frogger.model.Leaf;
-import com.aor.frogger.model.Log;
-import com.aor.frogger.model.game.River;
-import com.aor.frogger.model.game.Road;
+import com.aor.frogger.model.game.*;
 
 import java.util.List;
 
@@ -15,20 +10,26 @@ public abstract class ArenaBuilder {
 
         arena.setRoads(createRoads());
         arena.setRivers(createRivers());
+        arena.setDirts(createDirt());
         arena.setCars(createCars());
+        arena.setBackCar(createBackCars());
         arena.setFrog(createFrog());
-        arena.setLeaves(createLeaves());
         arena.setLogs(createLogs());
+        arena.setLilyPads(createLilyPads());
         arena.setLines(createLines());
 
         return arena;
     }
 
     protected abstract List<Car> createCars();
+    protected abstract List<BackCar> createBackCars();
     protected abstract Frog createFrog();
     protected abstract List<Log> createLogs();
-    protected abstract List<Leaf> createLeaves();
+    protected abstract List<LilyPad> createLilyPads();
     protected abstract List<Road> createRoads();
+
+    protected abstract List<Dirt> createDirt();
+
     protected abstract List<River> createRivers();
 
 

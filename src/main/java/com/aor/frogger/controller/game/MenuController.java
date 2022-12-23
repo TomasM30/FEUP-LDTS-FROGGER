@@ -3,7 +3,7 @@ package com.aor.frogger.controller.game;
 import com.aor.frogger.Game;
 import com.aor.frogger.controller.Controller;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.Menu;
+import com.aor.frogger.model.game.Menu;
 import com.aor.frogger.model.arena.LoaderArenaBuilder;
 import com.aor.frogger.states.GameState;
 
@@ -24,7 +24,9 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedHard()) game.setState(new GameState(new LoaderArenaBuilder("Hard").createArena())); // não está  bem porque falta implementar corretamente a LoaderArenaBuilder
+                if (getModel().isSelectedStartGame()) game.setState(new GameState(new LoaderArenaBuilder("Start Game").createArena()));
+            default:
+                break;
         }
     }
 }

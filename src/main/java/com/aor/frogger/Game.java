@@ -1,7 +1,7 @@
 package com.aor.frogger;
 
 import com.aor.frogger.gui.LanternaGUI;
-import com.aor.frogger.model.Menu;
+import com.aor.frogger.model.game.Menu;
 import com.aor.frogger.states.MenuState;
 import com.aor.frogger.states.State;
 
@@ -14,7 +14,7 @@ public class Game {
     private State state;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(20, 20);
+        this.gui = new LanternaGUI(20, 7);
         this.state = new MenuState(new Menu());
     }
 

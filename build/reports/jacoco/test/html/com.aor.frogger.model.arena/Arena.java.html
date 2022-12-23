@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Arena.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FROGGER</a> &gt; <a href="index.source.html" class="el_package">com.aor.frogger.model.arena</a> &gt; <span class="el_source">Arena.java</span></div><h1>Arena.java</h1><pre class="source lang-java linenums">package com.aor.frogger.model.arena;
+
+import com.aor.frogger.model.Position;
+import com.aor.frogger.model.game.*;
+
+import java.util.List;
+
+public class Arena {
+    private final int width;
+    private final int height;
+    private Frog frog;
+    private List&lt;Car&gt; cars;
+    private List&lt;BackCar&gt; backcars;
+    private List&lt;Log&gt; logs;
+    private List&lt;LilyPad&gt; lilyPads;
+    private List&lt;Road&gt; roads;
+    private List&lt;River&gt; rivers;
+    private List&lt;Dirt&gt; dirts;
+
+    private List&lt;List&lt;Object&gt;&gt; lines;
+
+<span class="fc" id="L22">    public Arena(int width, int height) {</span>
+<span class="fc" id="L23">        this.width = width;</span>
+<span class="fc" id="L24">        this.height = height;</span>
+<span class="fc" id="L25">    }</span>
+<span class="fc" id="L26">    public int getWidth() {return this.width;}</span>
+<span class="fc" id="L27">    public int getHeight() {return this.height;}</span>
+<span class="nc" id="L28">    public List&lt;List&lt;Object&gt;&gt; getLines() {return this.lines;}</span>
+<span class="fc" id="L29">    public Frog getFrog() {return this.frog;}</span>
+<span class="fc" id="L30">    public List&lt;Car&gt; getCars() {return this.cars;}</span>
+<span class="fc" id="L31">    public List&lt;BackCar&gt; getBackCar() {return this.backcars;}</span>
+<span class="fc" id="L32">    public List&lt;Log&gt; getLogs() {return this.logs;}</span>
+<span class="fc" id="L33">    public List&lt;LilyPad&gt; getLilyPads(){return this.lilyPads;}</span>
+<span class="fc" id="L34">    public List&lt;River&gt; getRivers() {return this.rivers;}</span>
+<span class="fc" id="L35">    public List&lt;Road&gt; getRoads() {return this.roads;}</span>
+<span class="fc" id="L36">    public List&lt;Dirt&gt; getDirts(){return this.dirts;}</span>
+
+<span class="fc" id="L38">    public void setFrog(Frog a) {this.frog = a;}</span>
+<span class="fc" id="L39">    public void setCars(List&lt;Car&gt; cars) {this.cars = cars;}</span>
+<span class="fc" id="L40">    public void setBackCar(List&lt;BackCar&gt; backcars) {this.backcars = backcars;}</span>
+<span class="fc" id="L41">    public void setLogs(List&lt;Log&gt; logs) {this.logs = logs;}</span>
+<span class="fc" id="L42">    public void setLilyPads(List&lt;LilyPad&gt; lilyPads) {this.lilyPads = lilyPads;}</span>
+<span class="fc" id="L43">    public void setLines(List&lt;List&lt;Object&gt;&gt; lines) {this.lines = lines;}</span>
+<span class="fc" id="L44">    public void setRoads(List&lt;Road&gt; roads) {this.roads = roads;}</span>
+<span class="fc" id="L45">    public void setRivers(List&lt;River&gt; rivers) {this.rivers = rivers;}</span>
+<span class="fc" id="L46">    public void setDirts(List&lt;Dirt&gt; dirts) {this.dirts = dirts;}</span>
+
+    public boolean isCar(Position position) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        for (Car car : cars)</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (car.getPosition().equals(position))</span>
+<span class="fc" id="L51">                return true;</span>
+<span class="fc" id="L52">        return false;</span>
+    }
+    public boolean isBackCar(Position position) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (BackCar Backcar : backcars)</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            if (Backcar.getPosition().equals(position))</span>
+<span class="fc" id="L57">                return true;</span>
+<span class="fc" id="L58">        return false;</span>
+    }
+    public boolean isLog(Position position) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for (Log log : logs)</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            if (log.getPosition().equals(position))</span>
+<span class="nc" id="L63">                return true;</span>
+<span class="fc" id="L64">        return false;</span>
+    }
+    public boolean isLilyPad(Position position) {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (LilyPad lilyPad : lilyPads)</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">            if (lilyPad.getPosition().equals(position))</span>
+<span class="nc" id="L69">                return true;</span>
+<span class="fc" id="L70">        return false;</span>
+    }
+    public boolean isRiver(Position position) {
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        for (River river : rivers)</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">            if(river.getPosition().equals(position)) return true;</span>
+<span class="fc" id="L75">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
