@@ -17,6 +17,11 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 - **Health counter** - Our frog will be able to reach its destination within 3 tries. If it colides against a car or a truck, or even if it falls into the river, the frog will be spawned to the starting position losing a heart each time it happens until it is left with none
 
 
+<p align="center">
+  <img src=https://github.com/FEUP-LDTS-2022/project-l04gr05/blob/Lima/src/main/resources/FroggerGif.gif alt="animated" />
+</p>
+
+
 ### DESIGN
 -------------------------------------------------------------------------------------------
 #### THE GAME DISPLAYS SCREENS AND ALLOWS USER INPUT BASED ON THE CURRENT STATE
