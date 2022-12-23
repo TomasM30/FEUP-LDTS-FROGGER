@@ -2,9 +2,9 @@ package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.game.BackCar;
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
-import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.BackCar;
 
 import java.io.IOException;
 
@@ -21,12 +21,12 @@ public class BackCarController extends GameController{
             this.lastMovement = time;
         }
     }
-    private void moveBackCar(BackCar backcar, River.Position position) {
+    private void moveBackCar(BackCar backcar, Position position) {
         backcar.setPosition(position);
         if(position.getX1() == 0)
-            backcar.setPosition(new River.Position(getModel().getWidth()-1,position.getY1()));
+            backcar.setPosition(new Position(getModel().getWidth()-1,position.getY1()));
         if (getModel().getFrog().getPosition().equals(position)) {
-            getModel().getFrog().setPosition(new River.Position(getModel().getWidth() / 2 - 1, 6));
+            getModel().getFrog().setPosition(new Position(getModel().getWidth() / 2 - 1, 6));
             getModel().getFrog().decreaseLives();
         }
     }

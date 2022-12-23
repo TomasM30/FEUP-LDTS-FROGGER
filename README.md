@@ -16,14 +16,7 @@ This project was develop by Tomás Martins (up202108776@fe.up.pt), João Lima (u
 
 - **Health counter** - Our frog will be able to reach its destination within 3 tries. If it colides against a car or a truck, or even if it falls into the river, the frog will be spawned to the starting position losing a heart each time it happens until it is left with none
 
-![LDTSuml drawio](https://user-images.githubusercontent.com/93995368/204024667-7b850704-7150-4fb2-823d-2e52d1ad793f.png)
 
-
-### PLANNED FEATURES
-
-- **Boosts** - Items that the frog can pick up to help it reach the other side easily
-- **Different Levels** - Increased speed and number of obstacles increase accordingly to the number of times the frog reaches the other side
-- **Timer** - Will trackdown the time the user takes to complete a level
 
 ###DESIGN
 -------------------------------------------------------------------------------------------
@@ -35,18 +28,16 @@ The game needs to display different screens and allow for user input based on th
 
 **Patterns**
 
-We have applied the **State** pattern. This pattern allows us to define a common interface for all states, with concrete implementations for each specific state.
-We created an abstract State class with abstract methods for getting the viewer and controller for the current state. We then created concrete State subclasses for each of the different screens, such as the GameOverState, the GameState, the GameWonState, and the MenuState. These subclasses override the abstract methods to return the appropriate viewer and controller for their specific state.
-The game has a State attribute that determines the current state. When the step method of the game is called, it delegates to the viewer of the current State to display the current state and to the controller of the current State to handle user input. This allows the behavior of the game to change dynamically based on the state it is in. For example, if the game is in the GameOverState, the GameOverViewer will be used to display the game over screen and the GameOverController will be used to handle user input. This allows us to manage the display of screens and handling of user input based on the current state in a more organized and maintainable way.
+**State**
 
-**Implementation**
+In our game we have four different moments: the menu, in-game, when you win or when you lose and we have different controllers and displays for each moment so, we need to know in which moment we are in order to correctly implement it.
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
+This pattern will help us to represent different states with the help of different subclasses and we can switch to another state by switching to another subclass. This will improve our code’s structure and it will allow us to have specific functions for each state.
 
-These classes can be found in the following files:
+The UML shows how the pattern’s roles were mapped to the application classes.
 
-**Consequences**
-
+These classes can be found in the following files: “GameState”, “GameOverState”, “GameWonState”, “MenuState”, “State”.
+Consequences:
 - The various states that represent the different screens are explicit in the code, making it easier to understand and maintain
 - We don't need to have a long set of conditional if or switch statements associated with the various states; instead, polymorphism is used to activate the right behavior
 - The code is more organized and maintainable because the state-specific behavior is managed in a clear and modular way
@@ -56,4 +47,3 @@ These classes can be found in the following files:
 ### TESTING
 
 We have tried to implement some tests using Mockito but most of them are not passing (some of them are). After this delivery there will be more tests and we hope that all of them will pass.
-

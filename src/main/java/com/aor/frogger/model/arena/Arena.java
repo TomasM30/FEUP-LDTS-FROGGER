@@ -1,5 +1,6 @@
 package com.aor.frogger.model.arena;
 
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.game.*;
 
 import java.util.List;
@@ -44,31 +45,31 @@ public class Arena {
     public void setRivers(List<River> rivers) {this.rivers = rivers;}
     public void setDirts(List<Dirt> dirts) {this.dirts = dirts;}
 
-    public boolean isCar(River.Position position) {
+    public boolean isCar(Position position) {
         for (Car car : cars)
             if (car.getPosition().equals(position))
                 return true;
         return false;
     }
-    public boolean isBackCar(River.Position position) {
+    public boolean isBackCar(Position position) {
         for (BackCar Backcar : backcars)
             if (Backcar.getPosition().equals(position))
                 return true;
         return false;
     }
-    public boolean isLog(River.Position position) {
+    public boolean isLog(Position position) {
         for (Log log : logs)
             if (log.getPosition().equals(position))
                 return true;
         return false;
     }
-    public boolean isLilyPad(River.Position position) {
+    public boolean isLilyPad(Position position) {
         for (LilyPad lilyPad : lilyPads)
             if (lilyPad.getPosition().equals(position))
                 return true;
         return false;
     }
-    public boolean isRiver(River.Position position) {
+    public boolean isRiver(Position position) {
         for (River river : rivers)
             if(river.getPosition().equals(position)) return true;
         return false;

@@ -2,9 +2,9 @@ package com.aor.frogger.controller.game;
 
 import com.aor.frogger.Game;
 import com.aor.frogger.gui.GUI;
-import com.aor.frogger.model.game.LilyPad;
+import com.aor.frogger.model.Position;
 import com.aor.frogger.model.arena.Arena;
-import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.game.LilyPad;
 
 import java.io.IOException;
 
@@ -21,15 +21,15 @@ public class LilyPadController extends GameController{
             this.lastMovement = time;
         }
     }
-    private void moveLilyPad(LilyPad lilyPad, River.Position position) {
+    private void moveLilyPad(LilyPad lilyPad, Position position) {
         if (lilyPad.getPosition().equals(getModel().getFrog().getPosition())){
             getModel().getFrog().setPosition(position);
             if (position.getX1() == -1) {
-                getModel().getFrog().setPosition(new River.Position(getModel().getWidth()-1, position.getY1()));
+                getModel().getFrog().setPosition(new Position(getModel().getWidth()-1, position.getY1()));
             }
         }
         lilyPad.setPosition(position);
         if(position.getX1() == -1)
-            lilyPad.setPosition(new River.Position(getModel().getWidth()-1,position.getY1()));
+            lilyPad.setPosition(new Position(getModel().getWidth()-1,position.getY1()));
     }
 }

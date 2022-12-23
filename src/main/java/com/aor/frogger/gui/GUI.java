@@ -1,27 +1,27 @@
 package com.aor.frogger.gui;
 
-import com.aor.frogger.model.game.River;
+import com.aor.frogger.model.Position;
 
 import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
 
-    void drawFrog(River.Position position);
+    void drawFrog(Position position);
 
-    void drawLog(River.Position position);
+    void drawLog(Position position);
 
-    void drawLilyPad(River.Position position);
+    void drawLilyPad(Position position);
 
-    void drawCar(River.Position position);
-    void drawBackCar(River.Position position);
+    void drawCar(Position position);
+    void drawBackCar(Position position);
 
-    void drawText(River.Position position, String text, String color);
+    void drawText(Position position, String text, String color);
 
-    void drawRiver(River.Position position);
+    void drawRiver(Position position);
 
-    void drawRoad(River.Position position);
-    void drawDirt(River.Position position);
+    void drawRoad(Position position);
+    void drawDirt(Position position);
 
     void clear();
 

@@ -25,42 +25,54 @@ pitest {
 test {
     useJUnitPlatform()
 }
+
 /*
 plugins {
     id 'java'
-    id 'groovy'
-    id 'info.solidsoft.pitest' version '1.9.11'
     id 'application'
-    id "net.ltgt.errorprone" version "2.0.2"
+    id 'info.solidsoft.pitest' version '1.7.4'
+    id 'jacoco'
+    id 'net.ltgt.errorprone' version '3.0.1'
 }
 
-group 'org.ldts.pacman'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
+pitest {
+    junit5PluginVersion = '0.12'
+}
+
 application {
-    mainClass.set("org.ldts.pacman.Game")
+    mainClass.set('org.example.Game')
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-    implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
-    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
-    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
-    errorprone("com.google.errorprone:error_prone_core:2.10.0")
-}
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.mockito:mockito-core:3.7.7'
+    testImplementation 'net.jqwik:jqwik:1.5.1'
 
-pitest {
-    targetClasses = ['org.ldts.pacman.*']
-    junit5PluginVersion = '1.0.0'
+    implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
+    errorprone 'com.google.errorprone:error_prone_core:2.16'
 }
 
 test {
-    useJUnitPlatform()
-    maxHeapSize = "4096m"
+    useJUnitPlatform {
+        includeEngines('junit-jupiter', 'jqwik')
+    }
+    finalizedBy jacocoTestReport // report is always generated after tests run
 }
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('reports/jacoco')
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+
 */
